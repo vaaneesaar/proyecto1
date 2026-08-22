@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanette — Vanesa Lilian Rodríguez Cortés | Diseñadora Gráfica</title>
+<meta name="description" content="Portafolio de Vanette — Diseñadora Gráfica especializada en branding, identidad visual y diseño de empaque.">
+<link rel="icon" href="logo/logo1.png" type="image/png">
+<style>
+/* ============================================================
+   FONTS
+   ============================================================ */
+@font-face{font-family:'Hypop-Heavy';src:url('fonts/Hypop-Heavy.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'NewYork';src:url('fonts/NewYork.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Avenir';src:url('fonts/Avenir-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Avenir';src:url('fonts/Avenir-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* === COLORS === */
+  --colors-primary:#D43200;
+  --colors-primary-hover:#B82A00;
+  --colors-secondary:#2B4871;
+  --colors-interactive:#05BADD;
+  --colors-interactive-hover:#2374E1;
+  --colors-hero-hover:#8A1D8F;
+  --colors-support:#658FC5;
+  --colors-emphasis:#FF8007;
+  --colors-accent:#FFB404;
+  --colors-warm-support:#FF6B4A;
+  --colors-editorial:#B49CD8;
+  --colors-background:#FAFAF8;
+  --colors-background-alt:#C7D5EB;
+  --colors-background-muted:#D9E3F2;
+  --colors-text:#1F2D45;
+  --colors-on-primary:#FFFFFF;
+
+  /* === TYPOGRAPHY === */
+  --typography-display-font:'Hypop-Heavy',sans-serif;
+  --typography-display-size:64px;--typography-display-weight:700;--typography-display-height:72px;
+  --typography-h1-font:'Hypop-Heavy',sans-serif;
+  --typography-h1-size:48px;--typography-h1-weight:700;--typography-h1-height:56px;
+  --typography-h2-font:'Hypop-Heavy',sans-serif;
+  --typography-h2-size:36px;--typography-h2-weight:700;--typography-h2-height:44px;
+  --typography-h3-font:'NewYork',Georgia,serif;
+  --typography-h3-size:28px;--typography-h3-weight:400;--typography-h3-height:36px;
+  --typography-h4-font:'NewYork',Georgia,serif;
+  --typography-h4-size:22px;--typography-h4-weight:400;--typography-h4-height:30px;
+  --typography-body-lg-font:'Avenir',-apple-system,BlinkMacSystemFont,sans-serif;
+  --typography-body-lg-size:18px;--typography-body-lg-weight:400;--typography-body-lg-height:28px;
+  --typography-body-md-font:'Avenir',-apple-system,BlinkMacSystemFont,sans-serif;
+  --typography-body-md-size:16px;--typography-body-md-weight:400;--typography-body-md-height:24px;
+  --typography-label-md-font:'Avenir',-apple-system,BlinkMacSystemFont,sans-serif;
+  --typography-label-md-size:16px;--typography-label-md-weight:500;--typography-label-md-height:24px;
+  --typography-caption-font:'Avenir',-apple-system,BlinkMacSystemFont,sans-serif;
+  --typography-caption-size:14px;--typography-caption-weight:400;--typography-caption-height:20px;
+
+  /* === SPACING === */
+  --spacing-3xs:4px;--spacing-2xs:8px;--spacing-xs:12px;--spacing-sm:16px;
+  --spacing-md:24px;--spacing-lg:32px;--spacing-xl:40px;--spacing-2xl:48px;
+  --spacing-3xl:64px;--spacing-4xl:80px;--spacing-5xl:96px;
+
+  /* === ROUNDED === */
+  --rounded-sm:8px;--rounded-md:16px;--rounded-full:9999px;
+
+  /* === SHADOWS === */
+  --shadow-hover:0 2px 8px rgba(0,0,0,0.08);
+  --shadow-medium:0 6px 16px rgba(0,0,0,0.12);
+  --shadow-high:0 10px 24px rgba(0,0,0,0.16);
+
+  --max-w:1440px;
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);color:var(--colors-text);background:var(--colors-background);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--colors-interactive);text-decoration:none;transition:color .2s}
+a:hover{color:var(--colors-interactive-hover)}
+:focus-visible{outline:2px solid var(--colors-interactive-hover);outline-offset:3px;border-radius:2px}
+:focus-visible{box-shadow:0 0 0 3px rgba(35,116,225,.3)}
+::selection{background:var(--colors-background-alt);color:var(--colors-text)}
+
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-xl)}
+@media(max-width:599px){.container{padding:0 var(--spacing-lg)}}
+
+/* ============================================================
+   NAV — nav-link, nav-link-hover
+   ============================================================ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(31,45,69,.1);height:64px;display:flex;align-items:center}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md)}
+@media(max-width:599px){.nav-inner{padding:0 var(--spacing-sm)}}
+.nav-logo{display:flex;align-items:center;gap:var(--spacing-sm);text-decoration:none}
+.nav-logo-isotipo{height:40px;width:auto;object-fit:contain}
+.nav-logo-logotipo{height:32px;width:auto;object-fit:contain}
+.nav-links{display:flex;gap:var(--spacing-md);list-style:none}
+.nav-links a{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);color:var(--colors-text);padding:var(--spacing-3xs) var(--spacing-xs);border-radius:var(--rounded-sm);transition:background .2s,color .2s;min-height:44px;display:flex;align-items:center}
+.nav-links a:hover{color:var(--colors-on-primary);background:var(--colors-interactive-hover)}
+.nav-links a.active{color:var(--colors-on-primary);background:var(--colors-accent)}
+@media(max-width:767px){.nav-links{display:none}}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:var(--spacing-2xs);color:var(--colors-text);min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.nav-hamburger svg{width:28px;height:28px}
+@media(max-width:767px){.nav-hamburger{display:flex}}
+
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--colors-background);z-index:99;padding:var(--spacing-lg) var(--spacing-md);flex-direction:column;gap:var(--spacing-sm)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--typography-display-font);font-size:var(--typography-h3-size);color:var(--colors-text);padding:var(--spacing-sm) 0;border-bottom:1px solid var(--colors-background-muted);transition:color .2s;min-height:44px;display:flex;align-items:center}
+.mobile-menu a:hover{color:var(--colors-interactive-hover)}
+
+/* ============================================================
+   BUTTONS — button-primary, button-secondary, button-ghost
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-2xs);font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);padding:14px 24px;border-radius:var(--rounded-md);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s,transform .1s;text-decoration:none;white-space:nowrap;min-height:44px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--colors-primary);color:var(--colors-on-primary)}
+.btn-primary:hover{background:var(--colors-interactive-hover);box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
+.btn-secondary{background:var(--colors-secondary);color:var(--colors-on-primary)}
+.btn-secondary:hover{background:var(--colors-interactive-hover);box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
+.btn-ghost{background:var(--colors-background);color:var(--colors-secondary);border-color:var(--colors-secondary)}
+.btn-ghost:hover{background:var(--colors-interactive-hover);color:var(--colors-on-primary);border-color:var(--colors-interactive-hover)}
+
+/* ============================================================
+   SECTION COMMON
+   ============================================================ */
+.section{padding:var(--spacing-3xl) 0;position:relative}
+/* ============================================================
+   SECTION COLOR THEMES — fondos vivos de la paleta DESIGN.md
+   ============================================================ */
+.section--projects{background:var(--colors-accent);color:var(--colors-text)}
+.section--projects .section-label{color:var(--colors-text)}
+.section--projects .section-title{color:var(--colors-text)}
+.section--projects .section-desc{color:var(--colors-text)}
+.section--projects .project-card-title{color:var(--colors-text)}
+.section--projects .project-card-desc{color:rgba(31,45,69,.8)}
+.section--projects .project-card-tags .tag{color:var(--colors-text)}
+.project-card:nth-child(6n+1){background:var(--colors-primary);border-color:var(--colors-primary)}
+.project-card:nth-child(6n+1) .project-card-title{color:var(--colors-on-primary)}
+.project-card:nth-child(6n+1) .project-card-desc{color:rgba(255,255,255,.85)}
+.project-card:nth-child(6n+2){background:var(--colors-editorial);border-color:var(--colors-editorial)}
+.project-card:nth-child(6n+3){background:var(--colors-interactive);border-color:var(--colors-interactive)}
+.project-card:nth-child(6n+4){background:var(--colors-warm-support);border-color:var(--colors-warm-support)}
+.project-card:nth-child(6n+5){background:var(--colors-secondary);border-color:var(--colors-secondary)}
+.project-card:nth-child(6n+5) .project-card-title{color:var(--colors-on-primary)}
+.project-card:nth-child(6n+5) .project-card-desc{color:rgba(255,255,255,.85)}
+.project-card:nth-child(6n+6){background:var(--colors-accent);border-color:var(--colors-accent)}
+.section--projects .project-pending{border-color:rgba(31,45,69,.3);color:rgba(31,45,69,.5)}
+.section--sky{background:#00B4D8;color:var(--colors-text)}
+.section--sky .section-label{color:var(--colors-text)}
+.section--sky .section-title{color:var(--colors-text)}
+.section--sky .section-desc{color:rgba(31,45,69,.8)}
+.section--sky .timeline-content .meta{color:rgba(31,45,69,.7)}
+.section--sky .timeline-content p{color:rgba(31,45,69,.9)}
+.section--sky .timeline-dot::before{background:var(--colors-primary)}
+.section--sky .timeline-dot::after{background:rgba(31,45,69,.25)}
+.section--sky .badge{background:var(--colors-primary);color:var(--colors-on-primary)}
+.section--sky .warm-card{background:var(--colors-accent);color:var(--colors-text)}
+.section--sky .warm-card h3{color:var(--colors-text)}
+.section--sky .warm-card p{color:rgba(31,45,69,.85)}
+.section--sky .tag{color:var(--colors-text)}
+.section--warm{background:var(--colors-warm-support);color:var(--colors-text)}
+.section--warm .section-label{color:var(--colors-on-primary)}
+.section--warm .section-title{color:var(--colors-on-primary)}
+.section--warm .section-desc{color:rgba(255,255,255,.85)}
+.section--warm .timeline-content .meta{color:rgba(255,255,255,.7)}
+.section--warm .timeline-content p{color:rgba(255,255,255,.9)}
+.section--warm .timeline-dot::before{background:var(--colors-on-primary)}
+.section--warm .timeline-dot::after{background:rgba(255,255,255,.25)}
+.section--warm .card{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.2);color:var(--colors-on-primary)}
+.section--warm .card-muted{background:rgba(255,255,255,.12);color:var(--colors-on-primary)}
+.section--warm .warm-card{background:rgba(255,255,255,.2);color:var(--colors-on-primary)}
+.section--warm .tag{color:var(--colors-text)}
+.section--warm .badge{color:var(--colors-text)}
+
+.section--editorial{background:var(--colors-editorial);color:var(--colors-text)}
+.section--accent{background:var(--colors-accent);color:var(--colors-text)}
+.section--accent .section-label{color:var(--colors-text)}
+.section--accent .section-title{color:var(--colors-text)}
+.section--accent .section-desc{color:rgba(31,45,69,.8)}
+.section--accent .timeline-content .meta{color:rgba(31,45,69,.6)}
+.section--accent .timeline-content p{color:rgba(31,45,69,.9)}
+.section--accent .timeline-dot::before{background:var(--colors-primary)}
+.section--accent .badge{background:var(--colors-primary);color:var(--colors-on-primary)}
+.section--editorial .section-label{color:var(--colors-text)}
+.section--editorial .section-title{color:var(--colors-text)}
+.section--editorial .section-desc{color:rgba(31,45,69,.75)}
+.section--editorial .contact-btn{background:rgba(255,255,255,.8);border-color:rgba(255,255,255,.5)}
+.section--editorial .contact-btn:hover{background:var(--colors-on-primary);border-color:var(--colors-interactive)}
+.section--editorial .contact-btn svg{color:#1E56C7}
+.section--violet{background:linear-gradient(135deg,#7B2FF2 0%,#9B59F5 40%,#C084FC 100%);color:var(--colors-on-primary)}
+.section--violet .section-label{color:var(--colors-on-primary)}
+.section--violet .section-title{color:var(--colors-on-primary)}
+.section--violet .about-text p{color:var(--colors-on-primary)}
+.section--violet .about-name{color:var(--colors-on-primary)}
+.section--violet .editorial-card{background:#1E56C7;border-left-color:var(--colors-on-primary)}
+.section--violet .editorial-card p{color:var(--colors-on-primary)}
+
+.section-label{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);text-transform:uppercase;letter-spacing:.1em;color:var(--colors-interactive);margin-bottom:var(--spacing-xs)}
+.section-title{font-family:var(--typography-h1-font);font-size:clamp(28px,4vw,var(--typography-h1-size));font-weight:var(--typography-h1-weight);line-height:1.15;color:var(--colors-text);margin-bottom:var(--spacing-xs)}
+.section-desc{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);color:var(--colors-secondary);max-width:640px;margin-bottom:var(--spacing-xl)}
+
+/* ============================================================
+   CARDS — card, card-featured, card-muted
+   ============================================================ */
+.card{background:var(--colors-background);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-background-muted);transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
+.card-featured{background:var(--colors-background-alt);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .2s,transform .2s}
+.card-featured:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
+.card-muted{background:var(--colors-background-muted);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .2s,transform .2s}
+.card-muted:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+
+/* ============================================================
+   SPECIAL CARDS
+   ============================================================ */
+.warm-card{background:var(--colors-warm-support);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);transition:box-shadow .2s}
+.warm-card:hover{box-shadow:var(--shadow-medium)}
+.editorial-card{background:var(--colors-editorial);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-md) var(--spacing-lg);border-left:4px solid var(--colors-primary);transition:box-shadow .2s;max-width:560px;margin:0 auto}
+.editorial-card:hover{box-shadow:var(--shadow-medium)}
+.interactive-highlight{background:var(--colors-interactive);color:var(--colors-text);border-radius:var(--rounded-sm);font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);font-weight:var(--typography-body-md-weight);line-height:var(--typography-body-md-height);padding:var(--spacing-xs) var(--spacing-sm);transition:box-shadow .2s}
+.interactive-highlight:hover{box-shadow:var(--shadow-hover)}
+
+/* ============================================================
+   INPUT — input, input-focus, label
+   ============================================================ */
+.input-group{display:flex;flex-direction:column;gap:var(--spacing-3xs)}
+.input-label{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);color:var(--colors-text)}
+.input-field{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);padding:12px var(--spacing-sm);border:2px solid var(--colors-background-alt);border-radius:var(--rounded-sm);background:var(--colors-on-primary);color:var(--colors-text);outline:none;transition:border-color .2s,box-shadow .2s;height:48px}
+.input-field::placeholder{color:var(--colors-support)}
+.input-field:focus{border-color:var(--colors-interactive);box-shadow:var(--shadow-hover)}
+
+/* ============================================================
+   BADGE — badge
+   ============================================================ */
+.badge{display:inline-flex;align-items:center;font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);font-weight:var(--typography-caption-weight);line-height:var(--typography-caption-height);padding:3px 12px;border-radius:var(--rounded-full);white-space:nowrap;background:var(--colors-emphasis);color:var(--colors-text)}
+
+/* ============================================================
+   TAG — tag (6 variantes)
+   ============================================================ */
+.tag{display:inline-flex;align-items:center;font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);font-weight:500;line-height:var(--typography-caption-height);padding:3px 12px;border-radius:var(--rounded-full);white-space:nowrap}
+.tag--accent{background:var(--colors-accent);color:var(--colors-text)}
+.tag--emphasis{background:var(--colors-emphasis);color:var(--colors-text)}
+.tag--interactive{background:var(--colors-interactive);color:var(--colors-text)}
+.tag--editorial{background:var(--colors-editorial);color:var(--colors-text)}
+.tag--warm{background:var(--colors-warm-support);color:var(--colors-text)}
+.tag--secondary{background:var(--colors-secondary);color:var(--colors-on-primary)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding-top:calc(64px + var(--spacing-3xl));padding-bottom:var(--spacing-sm);min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg,#0077B6 0%,#05BADD 50%,#00D4FF 100%);color:var(--colors-on-primary);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(255,180,4,.15);top:-120px;right:-100px;pointer-events:none}
+.hero::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;background:rgba(5,186,221,.12);bottom:-80px;left:-60px;pointer-events:none}
+.hero .hero-eyebrow{color:var(--colors-accent)}
+.hero .hero-name{color:var(--colors-on-primary)}
+.hero .hero-role{color:rgba(255,255,255,.85)}
+.hero .hero-desc{color:rgba(255,255,255,.8)}
+.hero .hero-social a{background:rgba(255,255,255,.15);color:var(--colors-on-primary)}
+.hero .hero-social a:hover{background:var(--colors-hero-hover);color:var(--colors-on-primary)}
+.hero .btn-ghost{background:transparent;color:var(--colors-on-primary);border-color:var(--colors-on-primary)}
+.hero .btn-ghost:hover{background:var(--colors-hero-hover);color:var(--colors-on-primary);border-color:var(--colors-hero-hover)}
+.hero .btn-primary{background:#C94FA0;color:var(--colors-on-primary)}
+.hero .btn-primary:hover{background:#A33D85;box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-md);align-items:center}
+.hero-text{order:1}
+.hero-image{order:2;text-align:center;position:relative}
+@media(max-width:599px){.hero-grid{grid-template-columns:1fr;gap:var(--spacing-sm)}.hero-text{order:1;text-align:center}.hero-image{order:2}.hero-img-wrap img{max-width:220px}.hero-branding{position:relative;bottom:auto;left:auto;width:80px;margin:var(--spacing-xs) auto 0;display:block}.hero-name{font-size:clamp(28px,6vw,36px)}.hero-role{font-size:14px}.hero-desc{font-size:12px;line-height:1.3}.hero-actions{order:3;justify-content:center}.hero-actions .btn{font-size:13px;padding:10px 16px}.hero-eyebrow{font-size:11px}.hero-social{order:4;justify-content:center}.hero-social a{width:32px;height:32px}.hero-social svg{width:14px;height:14px}}
+.hero-eyebrow{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);text-transform:uppercase;letter-spacing:.1em;color:var(--colors-interactive);margin-bottom:var(--spacing-sm)}
+.hero-name{font-family:var(--typography-display-font);font-size:clamp(40px,8vw,var(--typography-display-size));font-weight:var(--typography-display-weight);line-height:1.05;color:var(--colors-text);margin-bottom:var(--spacing-xs)}
+.hero-role{font-family:var(--typography-h3-font);font-size:clamp(18px,3vw,var(--typography-h3-size));font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height);color:var(--colors-secondary);margin-bottom:var(--spacing-md)}
+.hero-desc{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);color:var(--colors-secondary);margin-bottom:var(--spacing-lg);max-width:520px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);margin-bottom:var(--spacing-lg)}
+.hero-social{display:flex;gap:var(--spacing-sm)}
+.hero-social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--rounded-full);background:var(--colors-background-alt);color:var(--colors-secondary);font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);transition:background .2s,color .2s}
+.hero-social a:hover{background:var(--colors-interactive-hover);color:var(--colors-on-primary)}
+.hero-image{order:2;text-align:center;position:relative}
+.hero-branding{position:absolute;bottom:120px;left:-135px;width:168px;height:auto;pointer-events:none;border:none;border-radius:0;box-shadow:none;filter:none;opacity:1}
+@media(max-width:767px){.hero-branding{width:120px;bottom:80px;left:-75px}}
+.hero-image img{position:relative;z-index:1}
+.hero-img-wrap{position:relative;display:inline-block}
+.hero-img-wrap img{width:100%;max-width:510px;border-radius:var(--rounded-full);object-fit:cover;aspect-ratio:1/1}
+.hero-img-wrap .hero-branding{width:168px;height:auto;max-width:none;border-radius:0;aspect-ratio:auto;object-fit:contain}
+@media(max-width:1024px){.hero-img-wrap img{max-width:390px}}
+@media(max-width:767px){.hero-img-wrap img{max-width:280px}}
+.hero-img-decor{position:absolute;border-radius:var(--rounded-full);z-index:-1}
+.hero-img-decor--1{width:140px;height:140px;background:var(--colors-accent);opacity:.25;top:-24px;right:-24px}
+.hero-img-decor--2{width:100px;height:100px;background:var(--colors-interactive);opacity:.2;bottom:-20px;left:-20px}
+
+/* ============================================================
+   PROJECTS GRID
+   ============================================================ */
+.projects-grid{display:flex;gap:var(--spacing-md);overflow:hidden;width:100%;position:relative;padding:var(--spacing-md) 0;scroll-behavior:smooth;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.projects-grid .project-card{flex:0 0 calc(33.333% - var(--spacing-md)*2);min-width:280px;scroll-snap-align:start}
+.projects-nav{display:flex;justify-content:center;gap:var(--spacing-sm);margin-top:var(--spacing-md)}
+.projects-nav button{width:48px;height:48px;border-radius:var(--rounded-full);border:2px solid var(--colors-secondary);background:var(--colors-on-primary);color:var(--colors-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s;font-size:20px}
+.projects-nav button:hover{background:var(--colors-interactive-hover);color:var(--colors-on-primary);border-color:var(--colors-interactive-hover)}
+.project-card{background:var(--colors-background);color:var(--colors-text);border-radius:var(--rounded-md);overflow:hidden;border:2px solid var(--colors-background-muted);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.project-card:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
+.project-card-img{width:100%;height:200px;object-fit:cover}
+.project-card-body{padding:var(--spacing-sm) var(--spacing-md);flex:1;display:flex;flex-direction:column}
+.project-card-title{font-family:var(--typography-h4-font);font-size:var(--typography-h4-size);font-weight:var(--typography-h4-weight);line-height:var(--typography-h4-height);margin-bottom:var(--spacing-2xs);color:var(--colors-text)}
+.project-card-desc{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);line-height:var(--typography-caption-height);color:var(--colors-secondary);margin-bottom:var(--spacing-xs);flex:1}
+.project-card-tags{display:flex;flex-wrap:wrap;gap:var(--spacing-2xs)}
+.project-card-tags .tag{color:var(--colors-text)}
+.project-pending{display:flex;align-items:center;justify-content:center;border:2px dashed rgba(31,45,69,.3);border-radius:var(--rounded-md);min-height:280px;color:rgba(31,45,69,.5);font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);text-align:center;padding:var(--spacing-md)}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{display:grid;grid-template-columns:auto 1fr;gap:var(--spacing-lg);align-items:center}
+.about-grid .about-img{justify-self:start}
+.about-grid .about-text{text-align:center;justify-self:center}
+.section-wave{position:absolute;top:0;left:0;width:100%;height:60px;z-index:1;pointer-events:none}
+.section-wave svg{display:block;width:100%;height:100%}
+.section--violet .editorial-card{margin-top:-30px;margin-left:auto;margin-right:5%}
+@media(max-width:767px){.about-grid{grid-template-columns:1fr;gap:var(--spacing-sm)}.about-grid .about-img{justify-self:center;order:2}.about-grid .about-text{text-align:center;justify-self:center;order:1}.about-grid .about-img img{width:200px;height:200px}.about-grid .about-text p{font-size:12px;line-height:1.4}.about-soy,.about-name,.about-comma{display:block}.about-comma{display:none}.section--violet .editorial-card{padding:var(--spacing-xs) var(--spacing-sm);max-width:300px;margin:var(--spacing-md) auto 0}.section--violet .editorial-card p{font-size:11px}}
+.about-img{display:flex;justify-content:center}
+.about-img .blob-mask{position:relative;width:100%;max-width:400px;aspect-ratio:1/1;overflow:hidden;border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;box-shadow:var(--shadow-medium);border:4px solid var(--colors-on-primary)}
+.about-img .blob-mask img{width:100%;height:100%;object-fit:cover}
+@media(max-width:1024px){.about-img .blob-mask{max-width:320px}}
+@media(max-width:767px){.about-img .blob-mask{max-width:260px}}
+.about-text p{margin-bottom:var(--spacing-sm);font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);text-align:center}
+.about-text p:last-child{margin-bottom:0}
+.about-name{font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height);color:var(--colors-text)}
+
+/* ============================================================
+   TIMELINE — Educación (curvy path)
+   ============================================================ */
+.edu-timeline{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;padding:var(--spacing-xl) 0;-webkit-overflow-scrolling:touch}
+.edu-timeline-track{position:relative;min-width:1200px;height:420px;margin:0 auto}
+.edu-timeline svg.curve-path{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+.edu-timeline svg.curve-path path{fill:none;stroke:#1E56C7;stroke-width:3;stroke-linecap:round}
+.edu-tl-entry{position:absolute;display:flex;flex-direction:column;align-items:center;z-index:1}
+.edu-tl-entry:nth-child(2){left:2%;top:40px}
+.edu-tl-entry:nth-child(3){left:18%;top:220px}
+.edu-tl-entry:nth-child(4){left:34%;top:60px}
+.edu-tl-entry:nth-child(5){left:50%;top:240px}
+.edu-tl-entry:nth-child(6){left:66%;top:40px}
+.edu-tl-entry:nth-child(7){left:82%;top:220px}
+.edu-tl-entry:nth-child(8){left:94%;top:60px}
+.edu-tl-photo{position:relative;width:100px;height:100px}
+.edu-tl-photo img{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--colors-on-primary);box-shadow:0 4px 16px rgba(0,0,0,.15);position:relative;z-index:2}
+.edu-tl-accent{position:absolute;width:120px;height:120px;pointer-events:none;z-index:1}
+.edu-tl-accent svg{width:100%;height:100%}
+.edu-tl-entry:nth-child(odd) .edu-tl-accent{top:-10px;left:-10px}
+.edu-tl-entry:nth-child(even) .edu-tl-accent{top:-10px;right:-10px;left:auto}
+.edu-tl-year{font-family:var(--typography-display-font);font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--colors-text);margin-top:var(--spacing-xs);text-align:center}
+.edu-tl-info{text-align:center;max-width:160px;margin-top:var(--spacing-2xs)}
+.edu-tl-info h3{font-family:var(--typography-h4-font);font-size:13px;font-weight:var(--typography-h4-weight);line-height:1.3;color:var(--colors-text);margin-bottom:2px}
+.edu-tl-info .meta{font-family:var(--typography-caption-font);font-size:11px;color:rgba(31,45,69,.6)}
+@media(max-width:767px){
+  .edu-timeline{overflow-x:visible;padding:var(--spacing-md) 0}
+  .edu-timeline-track{min-width:auto;height:auto;display:flex;flex-direction:column;gap:var(--spacing-xl);padding:0 var(--spacing-md)}
+  .edu-tl-entry{position:relative !important;left:auto !important;top:auto !important;flex-direction:row;gap:var(--spacing-md);align-items:flex-start}
+  .edu-tl-photo{flex-shrink:0}
+  .edu-tl-photo img{width:80px;height:80px}
+  .edu-tl-accent{width:96px;height:96px}
+  .edu-tl-accent{top:-8px;left:-8px !important;right:auto !important}
+  .edu-tl-info{text-align:left;max-width:none}
+  .edu-tl-info h3{font-size:14px}
+  .edu-tl-info .meta{font-size:12px}
+  .edu-tl-year{font-size:22px;margin-top:0}
+  .edu-timeline svg.curve-path{display:none}
+}
+
+/* ============================================================
+   TIMELINE — Experiencia (vertical simple)
+   ============================================================ */
+.timeline-exp{display:flex;flex-direction:column;gap:var(--spacing-md)}
+.timeline-exp .tl-item{display:grid;grid-template-columns:4px 1fr;gap:var(--spacing-md);min-height:60px}
+.timeline-exp .tl-dot{display:flex;flex-direction:column;align-items:center}
+.timeline-exp .tl-dot::before{content:'';width:12px;height:12px;border-radius:var(--rounded-full);background:var(--colors-primary);flex-shrink:0;margin-top:6px}
+.timeline-exp .tl-dot::after{content:'';flex:1;width:2px;background:rgba(31,45,69,.2);margin-top:var(--spacing-2xs)}
+.timeline-exp .tl-item:last-child .tl-dot::after{display:none}
+.timeline-exp .tl-body{padding-bottom:var(--spacing-md)}
+.timeline-exp .tl-body h3{font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height);color:var(--colors-text);margin-bottom:2px}
+.timeline-exp .tl-body .meta{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);font-weight:var(--typography-caption-weight);line-height:var(--typography-caption-height);color:rgba(31,45,69,.6);margin-bottom:var(--spacing-xs)}
+.timeline-exp .tl-body p{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);font-weight:var(--typography-body-md-weight);line-height:var(--typography-body-md-height);color:rgba(31,45,69,.85)}
+.timeline-exp .tl-body .tags{display:flex;flex-wrap:wrap;gap:var(--spacing-2xs);margin-top:var(--spacing-xs)}
+
+/* ============================================================
+   SKILLS GRID
+   ============================================================ */
+.section--skills{background:var(--colors-emphasis);color:var(--colors-text)}
+.section--skills .section-label{color:var(--colors-text)}
+.section--skills .section-title{color:var(--colors-text)}
+.section--skills .section-desc{color:rgba(31,45,69,.75)}
+.skills-table{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-sm)}
+.skill-cell{background:rgba(255,255,255,.85);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid rgba(255,255,255,.5);display:flex;align-items:flex-start;gap:var(--spacing-xs);transition:box-shadow .2s;position:relative}
+.skill-cell:hover{box-shadow:var(--shadow-hover)}
+.skill-cell .skill-icon{flex-shrink:0;width:32px;height:32px;border-radius:var(--rounded-sm);display:flex;align-items:center;justify-content:center;position:relative}
+.skill-cell .skill-num{position:absolute;top:-8px;left:-8px;width:22px;height:22px;border-radius:50%;background:var(--colors-text);color:var(--colors-on-primary);font-family:var(--typography-display-font);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:2}
+.skill-cell p{font-family:var(--typography-body-md-font);font-size:14px;font-weight:var(--typography-body-md-weight);line-height:1.4;color:var(--colors-text)}
+@media(max-width:767px){.skills-table{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.skills-table{grid-template-columns:1fr}}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--spacing-sm)}
+.contact-btn{display:flex;align-items:center;gap:var(--spacing-xs);background:var(--colors-on-primary);border:2px solid var(--colors-background-muted);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);font-family:var(--typography-label-md-font);font-size:var(--typography-body-md-size);font-weight:var(--typography-label-md-weight);color:var(--colors-text);text-decoration:none;transition:border-color .2s,box-shadow .2s,color .2s;min-height:44px}
+.contact-btn:hover{border-color:var(--colors-interactive-hover);box-shadow:var(--shadow-hover);color:var(--colors-interactive)}
+.contact-btn svg{flex-shrink:0;width:20px;height:20px;color:#1E56C7}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:#FFFFFF;color:var(--colors-text);padding:var(--spacing-2xl) 0 var(--spacing-lg);text-align:center}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:var(--spacing-sm);margin-bottom:var(--spacing-sm)}
+.footer-logo-isotipo{width:48px;height:48px;border-radius:0;object-fit:contain}
+.footer-logo-logotipo{height:44px;width:auto;object-fit:contain}
+.footer-name{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);color:var(--colors-text);margin-bottom:var(--spacing-xs)}
+.footer-phrase{font-family:var(--typography-h3-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);color:rgba(31,45,69,.75);font-style:italic;margin-bottom:var(--spacing-md);max-width:480px;margin-left:auto;margin-right:auto}
+.footer-links{display:flex;justify-content:center;gap:var(--spacing-sm);margin-bottom:var(--spacing-md)}
+.footer-links a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--rounded-full);background:rgba(31,45,69,.1);color:var(--colors-text);transition:background .2s}
+.footer-links a:hover{background:var(--colors-interactive-hover);color:var(--colors-on-primary)}
+.footer-copy{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:rgba(31,45,69,.6)}
+
+/* ============================================================
+   DECORATIVE CIRCLES — ornamentación orgánica, colores brillantes
+   ============================================================ */
+.deco{position:absolute;border-radius:50%;pointer-events:none;z-index:0;animation-iteration-count:infinite;animation-timing-function:linear;filter:blur(.3px)}
+.deco--1{width:28px;height:28px;background:#FF4D6A;opacity:.55;top:-40px;left:3%;animation:confetti1 5s linear infinite;animation-delay:0s}
+.deco--2{width:22px;height:22px;background:#00E5FF;opacity:.6;top:-40px;left:10%;animation:confetti2 6s linear infinite;animation-delay:.3s}
+.deco--3{width:32px;height:32px;background:#FFD600;opacity:.6;top:-40px;left:18%;animation:confetti3 4.5s linear infinite;animation-delay:.8s}
+.deco--4{width:18px;height:18px;background:#FF8A00;opacity:.55;top:-40px;left:26%;animation:confetti1 7s linear infinite;animation-delay:1.2s}
+.deco--5{width:26px;height:26px;background:#7B61FF;opacity:.6;top:-40px;left:34%;animation:confetti2 5.5s linear infinite;animation-delay:1.6s}
+.deco--6{width:16px;height:16px;background:#FF4D6A;opacity:.5;top:-40px;left:42%;animation:confetti3 6.5s linear infinite;animation-delay:.2s}
+.deco--7{width:34px;height:34px;background:#00E5FF;opacity:.55;top:-40px;left:50%;animation:confetti1 4s linear infinite;animation-delay:1s}
+.deco--8{width:20px;height:20px;background:#FFD600;opacity:.6;top:-40px;left:58%;animation:confetti2 5s linear infinite;animation-delay:.6s}
+.deco--9{width:24px;height:24px;background:#FF8A00;opacity:.5;top:-40px;left:66%;animation:confetti3 6s linear infinite;animation-delay:1.5s}
+.deco--10{width:30px;height:30px;background:#7B61FF;opacity:.55;top:-40px;left:74%;animation:confetti1 7.5s linear infinite;animation-delay:.1s}
+.deco--11{width:19px;height:19px;background:#FF4D6A;opacity:.5;top:-40px;left:82%;animation:confetti2 5.8s linear infinite;animation-delay:2s}
+.deco--12{width:27px;height:27px;background:#00E5FF;opacity:.55;top:-40px;left:90%;animation:confetti3 4.8s linear infinite;animation-delay:1.3s}
+.deco--13{width:21px;height:21px;background:#FFD600;opacity:.5;top:-40px;left:14%;animation:confetti1 6.2s linear infinite;animation-delay:2.5s}
+.deco--14{width:25px;height:25px;background:#FF8A00;opacity:.55;top:-40px;left:46%;animation:confetti2 5.2s linear infinite;animation-delay:.5s}
+.deco--15{width:36px;height:36px;background:#7B61FF;opacity:.5;top:-40px;left:22%;animation:confetti3 6.8s linear infinite;animation-delay:1.8s}
+.deco--16{width:15px;height:15px;background:#FF4D6A;opacity:.55;top:-40px;left:54%;animation:confetti1 7.2s linear infinite;animation-delay:2.2s}
+.deco--17{width:29px;height:29px;background:#00E5FF;opacity:.5;top:-40px;left:38%;animation:confetti2 4.2s linear infinite;animation-delay:.9s}
+.deco--18{width:23px;height:23px;background:#FFD600;opacity:.55;top:-40px;left:78%;animation:confetti3 5.6s linear infinite;animation-delay:1.4s}
+.deco--19{width:31px;height:31px;background:#FF8A00;opacity:.5;top:-40px;left:6%;animation:confetti1 6.4s linear infinite;animation-delay:2.8s}
+.deco--20{width:17px;height:17px;background:#7B61FF;opacity:.55;top:-40px;left:86%;animation:confetti2 5.4s linear infinite;animation-delay:.4s}
+@keyframes confetti1{0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:.55}25%{transform:translateY(25vh) translateX(18px) rotate(90deg);opacity:.55}50%{transform:translateY(50vh) translateX(-12px) rotate(180deg);opacity:.55}75%{transform:translateY(75vh) translateX(15px) rotate(270deg);opacity:.55}100%{transform:translateY(110vh) translateX(-10px) rotate(360deg);opacity:0}}
+@keyframes confetti2{0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:.6}25%{transform:translateY(25vh) translateX(-22px) rotate(-90deg);opacity:.6}50%{transform:translateY(50vh) translateX(16px) rotate(-180deg);opacity:.6}75%{transform:translateY(75vh) translateX(-18px) rotate(-270deg);opacity:.6}100%{transform:translateY(110vh) translateX(12px) rotate(-360deg);opacity:0}}
+@keyframes confetti3{0%{transform:translateY(0) translateX(0) rotate(0deg) scale(1);opacity:.6}33%{transform:translateY(35vh) translateX(24px) rotate(120deg) scale(1.1);opacity:.6}66%{transform:translateY(70vh) translateX(-18px) rotate(240deg) scale(.9);opacity:.6}100%{transform:translateY(110vh) translateX(10px) rotate(360deg) scale(1);opacity:0}}
+@media(prefers-reduced-motion:reduce){.deco{animation:none!important}}
+
+/* ============================================================
+   MARQUEE — Tiras de texto repetido entre secciones
+   ============================================================ */
+.marquee{overflow:hidden;white-space:nowrap;background:var(--colors-secondary);color:var(--colors-on-primary);padding:var(--spacing-xs) 0;position:relative;z-index:2}
+.marquee-inner{display:inline-flex;animation:marquee-scroll 20s linear infinite}
+.marquee span{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);text-transform:uppercase;letter-spacing:.15em;padding:0 var(--spacing-md)}
+.marquee .marquee-sep{color:var(--colors-accent);font-size:10px;vertical-align:middle}
+@keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-inner{animation:none}}
+
+/* ============================================================
+   WAVE-LINE DECOR — Ornamentos de líneas onduladas
+   ============================================================ */
+.wave-decor{display:flex;gap:4px;align-items:center;opacity:.4}
+.wave-decor svg{width:40px;height:16px;flex-shrink:0}
+
+/* ============================================================
+   STRIPED BG — Patrón de rayas verticales
+   ============================================================ */
+.striped-bg{background:repeating-linear-gradient(90deg,var(--colors-secondary) 0px,var(--colors-secondary) 6px,transparent 6px,transparent 12px)}
+
+/* ============================================================
+   DOUBLE-LINE DIVIDER — Divisores doble línea vertical
+   ============================================================ */
+.double-line-v{display:flex;justify-content:center;gap:6px;padding:var(--spacing-md) 0}
+.double-line-v span{display:block;width:3px;height:40px;background:var(--colors-secondary);border-radius:2px;opacity:.4}
+
+/* ============================================================
+   NUMBERED CARD — Tarjetas de servicio con número
+   ============================================================ */
+.skill-cell-num{counter-increment:skill-num}
+.skill-cell-num .skill-icon::before{content:counter(skill-num);position:absolute;font-family:var(--typography-display-font);font-size:11px;font-weight:700;color:var(--colors-text);opacity:.7;top:50%;left:50%;transform:translate(-50%,-50%)}
+.skill-cell-num .skill-icon{position:relative}
+
+@media(prefers-reduced-motion:reduce){.marquee-inner{animation:none}}
+
+/* ============================================================
+   ANIMATIONS — respeta prefers-reduced-motion
+   ============================================================ */
+@media(prefers-reduced-motion:no-preference){
+  .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .fade-up.visible{opacity:1;transform:translateY(0)}
+}
+
+/* ============================================================
+   ASTERISK DECORATIONS — Estrellas decorativas grandes
+   ============================================================ */
+.asterisk{position:absolute;pointer-events:none;z-index:0;font-size:0;line-height:0}
+.asterisk svg{width:100%;height:100%}
+.asterisk--hero{width:120px;height:120px;top:15%;right:8%;opacity:.15;animation:spin-slow 20s linear infinite}
+.asterisk--sobre{width:80px;height:80px;bottom:20px;left:30px;opacity:.12;animation:spin-slow 25s linear infinite reverse}
+.asterisk--exp{width:60px;height:60px;top:40px;right:50px;opacity:.1;animation:spin-slow 18s linear infinite}
+.asterisk--hab{width:90px;height:90px;bottom:30px;right:60px;opacity:.12;animation:spin-slow 22s linear infinite reverse}
+.asterisk--contact{width:70px;height:70px;top:30px;left:40px;opacity:.1;animation:spin-slow 20s linear infinite}
+@keyframes spin-slow{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.asterisk svg{animation:none!important}}
+
+/* ============================================================
+   ORGANIC BLOB — Formas orgánicas de fondo
+   ============================================================ */
+.organic-blob{position:absolute;pointer-events:none;z-index:0;border-radius:50% 40% 60% 50% / 50% 60% 40% 50%}
+.organic-blob--hero{width:500px;height:500px;background:rgba(255,180,4,.1);top:-100px;right:-120px}
+.organic-blob--sobre{width:350px;height:350px;background:rgba(255,255,255,.08);bottom:-80px;right:-60px;border-radius:60% 40% 50% 50% / 40% 60% 50% 50%}
+.organic-blob--exp{width:300px;height:300px;background:rgba(255,255,255,.1);top:-60px;left:-80px;border-radius:40% 60% 50% 50% / 60% 40% 50% 50%}
+.organic-blob--edu{width:280px;height:280px;background:rgba(31,45,69,.06);bottom:-60px;right:-40px;border-radius:50% 50% 40% 60% / 50% 40% 60% 50%}
+.organic-blob--hab{width:320px;height:320px;background:rgba(255,255,255,.1);top:-50px;right:-70px;border-radius:60% 40% 50% 50% / 40% 60% 50% 50%}
+
+/* ============================================================
+   SQUIGGLY LINES — Líneas onduladas decorativas
+   ============================================================ */
+.squiggly{position:absolute;pointer-events:none;z-index:0;opacity:.2}
+.squiggly svg{width:60px;height:20px}
+
+/* ============================================================
+   STAT CARDS — Tarjetas de estadísticas grandes
+   ============================================================ */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-sm);margin-top:var(--spacing-lg)}
+.stat-card{background:rgba(255,255,255,.85);border-radius:var(--rounded-md);padding:var(--spacing-md);text-align:center;border:1px solid rgba(255,255,255,.5);transition:box-shadow .2s,transform .2s}
+.stat-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.stat-card .stat-num{font-family:var(--typography-display-font);font-size:clamp(32px,5vw,48px);font-weight:700;line-height:1;color:var(--colors-primary);margin-bottom:var(--spacing-2xs)}
+.stat-card .stat-label{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);text-transform:uppercase;letter-spacing:.08em;color:rgba(31,45,69,.7)}
+@media(max-width:767px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ============================================================
+   ORGANIC PHOTO MASK — Foto con máscara orgánica
+   ============================================================ */
+.about-img .blob-mask{position:relative;width:100%;max-width:400px;aspect-ratio:1/1;overflow:hidden;border-radius:60% 40% 50% 50% / 50% 60% 40% 50%;box-shadow:var(--shadow-medium);border:4px solid var(--colors-on-primary)}
+.about-img .blob-mask img{width:100%;height:100%;object-fit:cover}
+@media(max-width:1024px){.about-img .blob-mask{max-width:320px}}
+@media(max-width:767px){.about-img .blob-mask{max-width:260px}}
+
+/* ============================================================
+   FLOATING SHAPES — Elementos flotantes pequeños
+   ============================================================ */
+.float-shape{position:absolute;pointer-events:none;z-index:0;border-radius:50%}
+.float-shape--circle{border-radius:50%}
+.float-shape--diamond{border-radius:4px;transform:rotate(45deg)}
+.float-shape--ring{border-radius:50%;background:transparent !important;border:3px solid}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo" aria-label="Vanette — Inicio">
+      <img class="nav-logo-isotipo" src="logo/logo1.png" alt="Isotipo Vanette" width="44" height="44">
+      <img class="nav-logo-logotipo" src="logo/logotipoo.png" alt="Logotipo Vanette" height="36">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#sobre-mi">Un poquito de mi</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación">
+  <a href="#proyectos">Proyectos</a>
+  <a href="#sobre-mi">Un poquito de mi</a>
+  <a href="#experiencia">Experiencia</a>
+  <a href="#educacion">Educación</a>
+  <a href="#habilidades">Habilidades</a>
+  <a href="#contacto">Contacto</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="inicio">
+  <div class="organic-blob organic-blob--hero" aria-hidden="true"></div>
+  <div class="asterisk asterisk--hero" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 0 L54 40 L90 14 L58 44 L100 50 L58 56 L90 86 L54 60 L50 100 L46 60 L10 86 L42 56 L0 50 L42 44 L10 14 L46 40Z" fill="var(--colors-accent)"/></svg></div>
+  <div class="squiggly" aria-hidden="true" style="bottom:120px;left:60px"><svg viewBox="0 0 60 20"><path d="M0,10 Q7.5,0 15,10 Q22.5,20 30,10 Q37.5,0 45,10 Q52.5,20 60,10" fill="none" stroke="var(--colors-on-primary)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+  <div class="squiggly" aria-hidden="true" style="top:200px;right:30px"><svg viewBox="0 0 60 20"><path d="M0,10 Q7.5,0 15,10 Q22.5,20 30,10 Q37.5,0 45,10 Q52.5,20 60,10" fill="none" stroke="var(--colors-on-primary)" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+  <div class="deco deco--13" aria-hidden="true"></div>
+  <div class="deco deco--14" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-text fade-up">
+      <p class="hero-eyebrow">Diseñadora Gráfica</p>
+      <h1 class="hero-name">Vanette</h1>
+      <p class="hero-role">Vanesa Lilian Rodríguez Cortés</p>
+      <p class="hero-desc">Especializada en branding, identidad visual y diseño de&nbsp;empaque. Desarrollo experiencias visuales dinámicas, funcionales y memorables a&nbsp;través del color, la creatividad y&nbsp;la&nbsp;estrategia.</p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-ghost">Contáctame</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://instagram.com/vanette.ai" target="_blank" rel="noopener" aria-label="Instagram">@</a>
+        <a href="mailto:vanesarodriguez@lasallistas.org.mx" aria-label="Correo electrónico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image fade-up">
+      <div class="hero-img-wrap">
+        <div class="hero-img-decor hero-img-decor--1" aria-hidden="true"></div>
+        <div class="hero-img-decor hero-img-decor--2" aria-hidden="true"></div>
+        <img src="img/vane.jpg" alt="Vanesa Lilian Rodríguez Cortés — Diseñadora Gráfica" width="380" height="507" loading="eager">
+        <img class="hero-branding" src="logo/logo1.png" alt="Vanette" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-inner"><span>VANETTE <span class="marquee-sep">✦</span> DISEÑADORA CREATIVA <span class="marquee-sep">✦</span> BRANDING <span class="marquee-sep">✦</span> IDENTIDAD VISUAL <span class="marquee-sep">✦</span> DISEÑO DE EMPAQUE <span class="marquee-sep">✦</span></span><span>VANETTE <span class="marquee-sep">✦</span> DISEÑADORA CREATIVA <span class="marquee-sep">✦</span> BRANDING <span class="marquee-sep">✦</span> IDENTIDAD VISUAL <span class="marquee-sep">✦</span> DISEÑO DE EMPAQUE <span class="marquee-sep">✦</span></span></div></div>
+
+<!-- ============================================================
+     SOBRE MÍ
+     ============================================================ -->
+<section class="section section--violet" id="sobre-mi">
+  <div class="section-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 C480,0 960,60 1440,20 L1440,0 L0,0Z" fill="#0077B6"/></svg></div>
+  <div class="organic-blob organic-blob--sobre" aria-hidden="true"></div>
+  <div class="asterisk asterisk--sobre" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 0 L54 40 L90 14 L58 44 L100 50 L58 56 L90 86 L54 60 L50 100 L46 60 L10 86 L42 56 L0 50 L42 44 L10 14 L46 40Z" fill="var(--colors-on-primary)"/></svg></div>
+  <div class="deco deco--3" aria-hidden="true"></div>
+  <div class="deco deco--4" aria-hidden="true"></div>
+  <div class="container">
+    <p class="section-label fade-up">heyyy</p>
+    <h2 class="section-title fade-up">Un poquito de mi</h2>
+    <div class="about-grid">
+      <div class="about-img fade-up">
+        <div class="blob-mask"><img src="img/lilian.jpg" alt="Vanesa en su entorno de trabajo" width="360" height="360" loading="lazy"></div>
+      </div>
+      <div class="about-text fade-up">
+        <p><span class="about-soy">Soy</span> <strong class="about-name">Vanesa Lilian Rodríguez Cortés</strong><span class="about-comma">,</span> estudiante de Diseño Gráfico apasionada por el branding, la&nbsp;identidad visual y el diseño de empaque.</p>
+        <p>Mi enfoque combina creatividad y estrategia para generar experiencias visuales memorables. He complementado&nbsp;mis estudios con experiencias internacionales en Inglaterra, Francia, España y Estados Unidos, incluyendo&nbsp;experiencia laboral en el <strong>Disney Cultural Exchange Program</strong> en Disney World.</p>
+      </div>
+    </div>
+    <div class="editorial-card fade-up">
+      <p style="font-family:var(--typography-h3-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);font-style:italic;margin:0">"Busco crear proyectos que respondan a necesidades reales y generen conexiones significativas entre las marcas y las personas."</p>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true" style="background:var(--colors-primary)"><div class="marquee-inner"><span>VANETTE <span class="marquee-sep">✦</span> PORTAFOLIO <span class="marquee-sep">✦</span> DISEÑO GRÁFICO <span class="marquee-sep">✦</span> CREATIVIDAD <span class="marquee-sep">✦</span> ESTRATEGIA VISUAL <span class="marquee-sep">✦</span></span><span>VANETTE <span class="marquee-sep">✦</span> PORTAFOLIO <span class="marquee-sep">✦</span> DISEÑO GRÁFICO <span class="marquee-sep">✦</span> CREATIVIDAD <span class="marquee-sep">✦</span> ESTRATEGIA VISUAL <span class="marquee-sep">✦</span></span></div></div>
+
+<!-- ============================================================
+     PROYECTOS DESTACADOS
+     ============================================================ -->
+<section class="section section--projects" id="proyectos">
+  <div class="section-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 C480,0 960,60 1440,20 L1440,0 L0,0Z" fill="#7B61FF"/></svg></div>
+  <div class="deco deco--1" aria-hidden="true"></div>
+  <div class="deco deco--2" aria-hidden="true"></div>
+  <div class="container">
+    <p class="section-label fade-up">Portafolio</p>
+    <h2 class="section-title fade-up">Proyectos destacados</h2>
+    <p class="section-desc fade-up">Una selección de los trabajos más relevantes en branding, identidad visual y diseño de empaque.</p>
+    <div class="projects-grid">
+      <article class="project-card">
+        <img class="project-card-img" src="img/nano.png" alt="Proyecto Salsas Gourmet — diseño de empaque" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">Salsas Gourmet</h3>
+          <p class="project-card-desc">Diseño de empaque y sistema visual para marca de salsas gourmet.</p>
+          <div class="project-card-tags"><span class="tag tag--accent">Empaque</span><span class="tag tag--interactive">Branding</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-img" src="img/art.jpg" alt="Proyecto Stickers y recursos gráficos" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">Stickers & Gráficos</h3>
+          <p class="project-card-desc">Recursos gráficos y elementos decorativos para composiciones de diseño gráfico contemporáneo.</p>
+          <div class="project-card-tags"><span class="tag tag--warm">Ilustración</span><span class="tag tag--editorial">Editorial</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-img" src="img/compo.png" alt="Proyecto Insecticidas" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">Insecticidas</h3>
+          <p class="project-card-desc">Propuestas visuales para producto de insecticidas con identidad de marca.</p>
+          <div class="project-card-tags"><span class="tag tag--warm">Empaque</span><span class="tag tag--emphasis">Branding</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <img class="project-card-img" src="img/esclaeras.png" alt="Proyecto Ilustradores mexicanos" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title">Ilustradores mexicanos: Sin límite de Tiempo</h3>
+          <p class="project-card-desc">Proyecto de ilustración que rinde homenaje a ilustradores mexicanos contemporáneos.</p>
+          <div class="project-card-tags"><span class="tag tag--editorial">Ilustración</span><span class="tag tag--accent">Cultural</span></div>
+        </div>
+      </article>
+      <article class="project-card" style="background:var(--colors-interactive);border-color:var(--colors-interactive)">
+        <img class="project-card-img" src="img/blog.png" alt="Proyecto Campaña Social: Adopción" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title" style="color:var(--colors-text)">Campaña Social: Adopción</h3>
+          <p class="project-card-desc" style="color:rgba(31,45,69,.85)">Campaña de concientización sobre adopción de mascotas con identidad visual integral.</p>
+          <div class="project-card-tags"><span class="tag tag--emphasis">Campaña</span><span class="tag tag--warm">Social</span></div>
+        </div>
+      </article>
+      <article class="project-card" style="background:#1E56C7;border-color:#1E56C7">
+        <img class="project-card-img" src="img/RodriguezVanesa1.pdf" alt="Proyecto Ilustración digital" loading="lazy">
+        <div class="project-card-body">
+          <h3 class="project-card-title" style="color:var(--colors-on-primary)">Ilustración digital</h3>
+          <p class="project-card-desc" style="color:rgba(255,255,255,.85)">Series de ilustraciones digitales con enfoque creativo y exploración visual.</p>
+          <div class="project-card-tags"><span class="tag tag--interactive">Digital</span><span class="tag tag--warm">Ilustración</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="projects-nav">
+      <button id="prev-btn" aria-label="Anterior">&#8592;</button>
+      <button id="next-btn" aria-label="Siguiente">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true" style="background:var(--colors-editorial)"><div class="marquee-inner"><span>VANETTE <span class="marquee-sep">✦</span> TRAYECTORIA <span class="marquee-sep">✦</span> EXPERIENCIA <span class="marquee-sep">✦</span> DISNEY <span class="marquee-sep">✦</span> MENTORÍA <span class="marquee-sep">✦</span> INTERNACIONAL <span class="marquee-sep">✦</span></span><span>VANETTE <span class="marquee-sep">✦</span> TRAYECTORIA <span class="marquee-sep">✦</span> EXPERIENCIA <span class="marquee-sep">✦</span> DISNEY <span class="marquee-sep">✦</span> MENTORÍA <span class="marquee-sep">✦</span> INTERNACIONAL <span class="marquee-sep">✦</span></span></div></div>
+
+<!-- ============================================================
+     EXPERIENCIA — 3 roles solamente
+     ============================================================ -->
+<section class="section section--sky" id="experiencia">
+  <div class="section-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 C480,0 960,60 1440,20 L1440,0 L0,0Z" fill="#FFB404"/></svg></div>
+  <div class="organic-blob organic-blob--exp" aria-hidden="true"></div>
+  <div class="asterisk asterisk--exp" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 0 L54 40 L90 14 L58 44 L100 50 L58 56 L90 86 L54 60 L50 100 L46 60 L10 86 L42 56 L0 50 L42 44 L10 14 L46 40Z" fill="var(--colors-text)"/></svg></div>
+  <div class="deco deco--5" aria-hidden="true"></div>
+  <div class="deco deco--6" aria-hidden="true"></div>
+  <div class="container">
+    <p class="section-label fade-up">Trayectoria</p>
+    <h2 class="section-title fade-up">Experiencia</h2>
+    <div class="double-line-v fade-up" aria-hidden="true"><span></span><span></span></div>
+    <div class="timeline-exp">
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Diseñadora Gráfica</h3>
+          <p class="meta">Proyectos Académicos y Freelance · 2023 – Actualidad</p>
+          <p>Branding, identidad visual, diseño editorial, empaque, campañas publicitarias, motion graphics y modelado 3D. Construcción de sistemas visuales y soluciones gráficas centradas en la comunicación efectiva.</p>
+          <div class="tags">
+            <span class="tag tag--accent">Branding</span>
+            <span class="tag tag--interactive">Identidad</span>
+            <span class="tag tag--warm">Empaque</span>
+            <span class="tag tag--editorial">Motion</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="warm-card" style="margin-bottom:var(--spacing-xs)">
+            <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height);margin-bottom:var(--spacing-3xs)">Disney Cultural Exchange Program</h3>
+            <p class="meta" style="color:var(--colors-text)">Disney's Hollywood Studios · 2026</p>
+            <p style="color:var(--colors-text)">Colaboración en operaciones y atención al visitante. Fortalecimiento de comunicación, resolución de problemas, trabajo colaborativo y adaptación a entornos multiculturales de alto ritmo operativo.</p>
+          </div>
+          <div class="tags">
+            <span class="tag tag--emphasis">Comunicación</span>
+            <span class="tag" style="background:#1E56C7;color:var(--colors-on-primary)">Trabajo en Equipo</span>
+            <span class="tag tag--accent">Internacional</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Mentora Académica</h3>
+          <p class="meta">Universidad La Salle México · 2026 – Actualidad</p>
+          <p>Acompañamiento a estudiantes de semestres iniciales: resolución de dudas, orientación de aprendizaje, organización de proyectos y fomento de habilidades en diseño gráfico.</p>
+          <div class="tags">
+            <span class="tag tag--interactive">Mentoría</span>
+            <span class="tag tag--editorial">Organización</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ESTADÍSTICAS — Números destacados
+     ============================================================ -->
+<section class="section" style="background:var(--colors-background);padding:var(--spacing-2xl) 0">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Países visitados</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Proyectos completados</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Idiomas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true" style="background:var(--colors-emphasis)"><div class="marquee-inner"><span>VANETTE <span class="marquee-sep">✦</span> EDUCACIÓN <span class="marquee-sep">✦</span> LA SALLE <span class="marquee-sep">✦</span> EF OXFORD <span class="marquee-sep">✦</span> IED BARCELONA <span class="marquee-sep">✦</span> INTERNACIONAL <span class="marquee-sep">✦</span></span><span>VANETTE <span class="marquee-sep">✦</span> EDUCACIÓN <span class="marquee-sep">✦</span> LA SALLE <span class="marquee-sep">✦</span> EF OXFORD <span class="marquee-sep">✦</span> IED BARCELONA <span class="marquee-sep">✦</span> INTERNACIONAL <span class="marquee-sep">✦</span></span></div></div>
+
+<!-- ============================================================
+     EDUCACIÓN
+     ============================================================ -->
+<section class="section section--accent" id="educacion">
+  <div class="section-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 C480,0 960,60 1440,20 L1440,0 L0,0Z" fill="#00B4D8"/></svg></div>
+  <div class="organic-blob organic-blob--edu" aria-hidden="true"></div>
+  <div class="deco deco--7" aria-hidden="true"></div>
+  <div class="deco deco--8" aria-hidden="true"></div>
+  <div class="container">
+    <p class="section-label fade-up">Formación</p>
+    <h2 class="section-title fade-up">Educación</h2>
+    <p class="section-desc fade-up">Mi trayectoria académica con experiencias internacionales en cuatro países.</p>
+    <div class="edu-timeline">
+        <div class="edu-timeline-track">
+        <svg class="curve-path" viewBox="0 0 1200 420" preserveAspectRatio="none"><path d="M80,100 C200,100 200,300 350,300 C500,300 500,100 650,100 C800,100 800,300 950,300 C1100,300 1100,100 1200,100"/></svg>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/lasalle.jpeg" alt="Preparatoria" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#FFD600" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><circle cx="60" cy="60" r="20" fill="#FFD600" opacity=".3"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2015</div>
+          <div class="edu-tl-info">
+            <h3>Preparatoria</h3>
+            <p class="meta">Universidad La Salle México</p>
+          </div>
+        </div>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/oxford.jpg" alt="EF Oxford" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#7B61FF" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><rect x="40" y="40" width="40" height="40" rx="8" fill="#7B61FF" opacity=".3" transform="rotate(45 60 60)"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2018</div>
+          <div class="edu-tl-info">
+            <h3>Intensive English Academic Semester</h3>
+            <p class="meta">EF Education First · Oxford, Inglaterra</p>
+          </div>
+        </div>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/centro.jpeg" alt="CENTRO" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#1E56C7" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><path d="M60,20 L75,50 L105,50 L80,70 L90,100 L60,80 L30,100 L40,70 L15,50 L45,50Z" fill="#1E56C7" opacity=".3"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2019</div>
+          <div class="edu-tl-info">
+            <h3>Marketing y Publicidad</h3>
+            <p class="meta">CENTRO de Diseño, Cine y Televisión</p>
+          </div>
+        </div>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/ny.png" alt="EF Nueva York" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#00E5FF" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><path d="M60,15 L65,40 L90,40 L70,55 L78,80 L60,65 L42,80 L50,55 L30,40 L55,40Z" fill="#00E5FF" opacity=".4"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2021</div>
+          <div class="edu-tl-info">
+            <h3>University Foundation Year</h3>
+            <p class="meta">EF Education First · Nueva York, EE.UU.</p>
+          </div>
+        </div>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/paris.jpg" alt="EF París" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#FF4D6A" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><circle cx="60" cy="30" r="12" fill="#FF4D6A" opacity=".4"/><circle cx="40" cy="70" r="8" fill="#FF4D6A" opacity=".3"/><circle cx="80" cy="70" r="8" fill="#FF4D6A" opacity=".3"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2022</div>
+          <div class="edu-tl-info">
+            <h3>French Intensive Academic Trimester</h3>
+            <p class="meta">EF Education First · París, Francia</p>
+          </div>
+        </div>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/ied.jpg" alt="IED Barcelona" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#FF8A00" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><path d="M30,60 Q60,20 90,60 Q60,100 30,60Z" fill="#FF8A00" opacity=".35"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2024</div>
+          <div class="edu-tl-info">
+            <h3>Graphic Design Course</h3>
+            <p class="meta">IED · Barcelona, España</p>
+          </div>
+        </div>
+        <div class="edu-tl-entry fade-up">
+          <div class="edu-tl-photo">
+            <img src="img/lasalle.jpeg" alt="La Salle" loading="lazy">
+            <div class="edu-tl-accent"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="#FFD600" stroke-width="2" stroke-dasharray="8 6" opacity=".5"/><polygon points="60,10 65,25 80,25 68,35 72,50 60,40 48,50 52,35 40,25 55,25" fill="#FFD600" opacity=".6"/></svg></div>
+          </div>
+          <div class="edu-tl-year">2023</div>
+          <div class="edu-tl-info">
+            <h3>Licenciatura en Diseño Gráfico</h3>
+            <p class="meta">Universidad La Salle México · Actualidad</p>
+          </div>
+        </div>
+      </div>
+            <h3>Preparatoria</h3>
+            <p class="meta">Universidad La Salle México</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true" style="background:var(--colors-warm-support)"><div class="marquee-inner"><span>VANETTE <span class="marquee-sep">✦</span> COMPETENCIAS <span class="marquee-sep">✦</span> ADOBE CC <span class="marquee-sep">✦</span> BRANDING <span class="marquee-sep">✦</span> ILUSTRACIÓN <span class="marquee-sep">✦</span> INGLÉS C1 <span class="marquee-sep">✦</span></span><span>VANETTE <span class="marquee-sep">✦</span> COMPETENCIAS <span class="marquee-sep">✦</span> ADOBE CC <span class="marquee-sep">✦</span> BRANDING <span class="marquee-sep">✦</span> ILUSTRACIÓN <span class="marquee-sep">✦</span> INGLÉS C1 <span class="marquee-sep">✦</span></span></div></div>
+
+<!-- ============================================================
+     HABILIDADES
+     ============================================================ -->
+<section class="section section--skills" id="habilidades">
+  <div class="section-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 C480,0 960,60 1440,20 L1440,0 L0,0Z" fill="#FFB404"/></svg></div>
+  <div class="organic-blob organic-blob--hab" aria-hidden="true"></div>
+  <div class="asterisk asterisk--hab" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 0 L54 40 L90 14 L58 44 L100 50 L58 56 L90 86 L54 60 L50 100 L46 60 L10 86 L42 56 L0 50 L42 44 L10 14 L46 40Z" fill="var(--colors-text)"/></svg></div>
+  <div class="deco deco--9" aria-hidden="true"></div>
+  <div class="deco deco--10" aria-hidden="true"></div>
+  <div class="wave-decor" aria-hidden="true" style="position:absolute;top:80px;right:40px"><svg viewBox="0 0 40 16"><path d="M0,8 Q5,0 10,8 Q15,16 20,8 Q25,0 30,8 Q35,16 40,8" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg viewBox="0 0 40 16"><path d="M0,8 Q5,0 10,8 Q15,16 20,8 Q25,0 30,8 Q35,16 40,8" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg viewBox="0 0 40 16"><path d="M0,8 Q5,0 10,8 Q15,16 20,8 Q25,0 30,8 Q35,16 40,8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+  <div class="wave-decor" aria-hidden="true" style="position:absolute;bottom:80px;left:40px"><svg viewBox="0 0 40 16"><path d="M0,8 Q5,0 10,8 Q15,16 20,8 Q25,0 30,8 Q35,16 40,8" fill="none" stroke="currentColor" stroke-width="2"/></svg><svg viewBox="0 0 40 16"><path d="M0,8 Q5,0 10,8 Q15,16 20,8 Q25,0 30,8 Q35,16 40,8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+  <div class="container">
+    <p class="section-label fade-up">Competencias</p>
+    <h2 class="section-title fade-up">Habilidades</h2>
+    <p class="section-desc fade-up">Mis principales competencias técnicas y creativas.</p>
+    <div class="skills-table">
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(180,156,216,.2)">
+          <span class="skill-num">1</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-editorial)" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <p>Adobe Creative Cloud: Illustrator, Photoshop, InDesign, After Effects, Lightroom</p>
+      </div>
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(255,107,74,.12)">
+          <span class="skill-num">2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-warm-support)" stroke-width="2" width="18" height="18"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>Proyectos creativos desde investigación y conceptualización hasta ejecución final</p>
+      </div>
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(255,180,4,.15)">
+          <span class="skill-num">3</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-accent)" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <p>Presentaciones, campañas gráficas y contenido para redes sociales</p>
+      </div>
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(255,128,7,.12)">
+          <span class="skill-num">4</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-emphasis)" stroke-width="2" width="18" height="18"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <p>Organización de proyectos, trabajo colaborativo y gestión de equipos</p>
+      </div>
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(212,50,0,.08)">
+          <span class="skill-num">5</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-primary)" stroke-width="2" width="18" height="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <p>Comunicación efectiva, atención al detalle, pensamiento creativo y resolución de problemas</p>
+      </div>
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(101,143,197,.15)">
+          <span class="skill-num">6</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-support)" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <p>Inglés avanzado (C1) para comunicación académica y profesional</p>
+      </div>
+      <div class="skill-cell fade-up">
+        <div class="skill-icon" style="background:rgba(255,180,4,.15)">
+          <span class="skill-num">7</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--colors-accent)" stroke-width="2" width="18" height="18"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <p>Adaptabilidad a entornos multiculturales y experiencia de trabajo internacional</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true" style="background:var(--colors-text)"><div class="marquee-inner"><span>VANETTE <span class="marquee-sep">✦</span> CONTACTO <span class="marquee-sep">✦</span> HABLEMOS <span class="marquee-sep">✦</span> PROYECTOS <span class="marquee-sep">✦</span> COLABORACIÓN <span class="marquee-sep">✦</span> VANETTE.AI <span class="marquee-sep">✦</span></span><span>VANETTE <span class="marquee-sep">✦</span> CONTACTO <span class="marquee-sep">✦</span> HABLEMOS <span class="marquee-sep">✦</span> PROYECTOS <span class="marquee-sep">✦</span> COLABORACIÓN <span class="marquee-sep">✦</span> VANETTE.AI <span class="marquee-sep">✦</span></span></div></div>
+
+<!-- ============================================================
+     CONTACTO
+     ============================================================ -->
+<section class="section section--editorial" id="contacto">
+  <div class="section-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,60 C480,0 960,60 1440,20 L1440,0 L0,0Z" fill="#FF8007"/></svg></div>
+  <div class="asterisk asterisk--contact" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 0 L54 40 L90 14 L58 44 L100 50 L58 56 L90 86 L54 60 L50 100 L46 60 L10 86 L42 56 L0 50 L42 44 L10 14 L46 40Z" fill="var(--colors-text)"/></svg></div>
+  <div class="deco deco--11" aria-hidden="true"></div>
+  <div class="deco deco--12" aria-hidden="true"></div>
+  <div class="container">
+    <p class="section-label fade-up">Hablemos</p>
+    <h2 class="section-title fade-up">Contacto</h2>
+    <p class="section-desc fade-up">¿Tienes un proyecto en mente? Me encantaría escuchar tu idea.</p>
+    <div class="contact-grid">
+      <a href="mailto:vanesarodriguez@lasallistas.org.mx" class="contact-btn fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+        Correo electrónico
+      </a>
+      <a href="https://instagram.com/vanette.ai" target="_blank" rel="noopener" class="contact-btn fade-up">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        @vanette.ai
+      </a>
+      <a href="https://www.linkedin.com/in/vanesa-rodr%C3%ADguez-212b3420b" target="_blank" rel="noopener" class="contact-btn fade-up">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/vaaneesaar" target="_blank" rel="noopener" class="contact-btn fade-up">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="deco deco--5" aria-hidden="true" style="background:var(--colors-primary);opacity:.1"></div>
+  <div class="deco deco--8" aria-hidden="true" style="background:var(--colors-interactive);opacity:.1"></div>
+  <div class="container">
+    <div class="footer-logo">
+      <img class="footer-logo-isotipo" src="logo/logo1.png" alt="Isotipo Vanette" width="48" height="48">
+      <img class="footer-logo-logotipo" src="logo/logotipoo.png" alt="Logotipo Vanette" height="44">
+    </div>
+    <p class="footer-name">Vanesa Lilian Rodríguez Cortés</p>
+    <p class="footer-phrase">"Diseñando experiencias visuales con creatividad, color y propósito."</p>
+    <div class="footer-links">
+      <a href="https://instagram.com/vanette.ai" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+      </a>
+      <a href="mailto:vanesarodriguez@lasallistas.org.mx" aria-label="Correo electrónico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Vanette. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JS — hamburger, scroll spy, fade-up
+     ============================================================ -->
+<script>
+(function(){
+  var hamburger=document.querySelector('.nav-hamburger');
+  var mobileMenu=document.getElementById('mobile-menu');
+  var openSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  var closeSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+  hamburger.addEventListener('click',function(){
+    var isOpen=mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded',isOpen);
+    hamburger.innerHTML=isOpen?closeSvg:openSvg;
+    document.body.style.overflow=isOpen?'hidden':'';
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click',function(){
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML=openSvg;
+      document.body.style.overflow='';
+    });
+  });
+
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
+  }else{
+    document.querySelectorAll('.fade-up').forEach(function(el){el.classList.add('visible')});
+  }
+
+  var sections=document.querySelectorAll('section[id]');
+  var navLinks=document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll',function(){
+    var scrollY=window.scrollY+100;
+    sections.forEach(function(section){
+      var top=section.offsetTop;
+      var height=section.offsetHeight;
+      var id=section.getAttribute('id');
+      if(scrollY>=top&&scrollY<top+height){
+        navLinks.forEach(function(link){
+          link.classList.remove('active');
+          if(link.getAttribute('href')==='#'+id)link.classList.add('active');
+        });
+      }
+    });
+  },{passive:true});
+
+  var projectsGrid=document.querySelector('.projects-grid');
+  var prevBtn=document.getElementById('prev-btn');
+  var nextBtn=document.getElementById('next-btn');
+  if(projectsGrid&&prevBtn&&nextBtn){
+    var scrollAmount=projectsGrid.querySelector('.project-card').offsetWidth+24;
+    prevBtn.addEventListener('click',function(){projectsGrid.scrollBy({left:-scrollAmount,behavior:'smooth'})});
+    nextBtn.addEventListener('click',function(){projectsGrid.scrollBy({left:scrollAmount,behavior:'smooth'})});
+  }
+})();
+</script>
+</body>
+</html>

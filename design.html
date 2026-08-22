@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLRC Design System — Reference</title>
+<link rel="icon" href="logo/logo.jpg" type="image/jpeg">
+<style>
+/* ============================================================
+   FONTS
+   ============================================================ */
+@font-face{font-family:'Hypop-Heavy';src:url('fonts/Hypop-Heavy.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'NewYork';src:url('fonts/NewYork.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Avenir';src:url('fonts/Avenir-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Avenir';src:url('fonts/Avenir-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --colors-primary:#D43200;
+  --colors-primary-hover:#B82A00;
+  --colors-secondary:#2B4871;
+  --colors-interactive:#05BADD;
+  --colors-support:#658FC5;
+  --colors-emphasis:#FF8007;
+  --colors-accent:#FFB404;
+  --colors-warm-support:#FF6B4A;
+  --colors-editorial:#B49CD8;
+  --colors-background:#FAFAF8;
+  --colors-background-alt:#C7D5EB;
+  --colors-background-muted:#D9E3F2;
+  --colors-text:#1F2D45;
+  --colors-on-primary:#FFFFFF;
+
+  --typography-display-font:'Hypop-Heavy',sans-serif;
+  --typography-display-size:64px;--typography-display-weight:700;--typography-display-height:72px;
+  --typography-h1-font:'Hypop-Heavy',sans-serif;
+  --typography-h1-size:48px;--typography-h1-weight:700;--typography-h1-height:56px;
+  --typography-h2-font:'Hypop-Heavy',sans-serif;
+  --typography-h2-size:36px;--typography-h2-weight:700;--typography-h2-height:44px;
+  --typography-h3-font:'NewYork',Georgia,serif;
+  --typography-h3-size:28px;--typography-h3-weight:400;--typography-h3-height:36px;
+  --typography-h4-font:'NewYork',Georgia,serif;
+  --typography-h4-size:22px;--typography-h4-weight:400;--typography-h4-height:30px;
+  --typography-body-lg-font:'Avenir',-apple-system,sans-serif;
+  --typography-body-lg-size:18px;--typography-body-lg-weight:400;--typography-body-lg-height:28px;
+  --typography-body-md-font:'Avenir',-apple-system,sans-serif;
+  --typography-body-md-size:16px;--typography-body-md-weight:400;--typography-body-md-height:24px;
+  --typography-label-md-font:'Avenir',-apple-system,sans-serif;
+  --typography-label-md-size:16px;--typography-label-md-weight:500;--typography-label-md-height:24px;
+  --typography-caption-font:'Avenir',-apple-system,sans-serif;
+  --typography-caption-size:14px;--typography-caption-weight:400;--typography-caption-height:20px;
+
+  --spacing-3xs:4px;--spacing-2xs:8px;--spacing-xs:12px;--spacing-sm:16px;
+  --spacing-md:24px;--spacing-lg:32px;--spacing-xl:40px;--spacing-2xl:48px;
+  --spacing-3xl:64px;--spacing-4xl:80px;--spacing-5xl:96px;
+
+  --rounded-sm:8px;--rounded-md:16px;--rounded-full:9999px;
+
+  --shadow-hover:0 2px 8px rgba(0,0,0,0.08);
+  --shadow-medium:0 6px 16px rgba(0,0,0,0.12);
+  --shadow-high:0 10px 24px rgba(0,0,0,0.16);
+
+  --max-w:1440px;
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);color:var(--colors-text);background:var(--colors-background);-webkit-font-smoothing:antialiased}
+::selection{background:var(--colors-background-alt);color:var(--colors-text)}
+:focus-visible{outline:2px solid var(--colors-interactive);outline-offset:3px;border-radius:2px}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.page-header{background:var(--colors-secondary);color:var(--colors-on-primary);padding:var(--spacing-3xl) 0 var(--spacing-2xl);text-align:center}
+.page-header h1{font-family:var(--typography-display-font);font-size:clamp(36px,6vw,var(--typography-display-size));font-weight:var(--typography-display-weight);line-height:1.1;margin-bottom:var(--spacing-xs)}
+.page-header p{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);color:var(--colors-background-alt);max-width:640px;margin:0 auto}
+
+.toc{position:sticky;top:64px;z-index:50;background:var(--colors-background);border-bottom:1px solid var(--colors-background-muted);padding:var(--spacing-xs) 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.toc-inner{display:flex;gap:var(--spacing-sm);max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md);white-space:nowrap}
+.toc a{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);color:var(--colors-secondary);text-decoration:none;padding:var(--spacing-2xs) var(--spacing-xs);border-radius:var(--rounded-full);transition:background .2s,color .2s}
+.toc a:hover,.toc a.active{background:var(--colors-background-alt);color:var(--colors-primary)}
+
+.page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--colors-background-muted);height:64px;display:flex;align-items:center}
+.page-nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md)}
+.page-nav-logo{display:flex;align-items:center;gap:var(--spacing-xs);text-decoration:none;color:var(--colors-text)}
+.page-nav-logo img{width:32px;height:32px;border-radius:var(--rounded-full);object-fit:cover}
+.page-nav-logo span{font-family:var(--typography-display-font);font-size:18px;font-weight:var(--typography-display-weight)}
+.page-nav-badge{font-family:var(--typography-caption-font);font-size:12px;background:var(--colors-background-alt);color:var(--colors-secondary);padding:2px 10px;border-radius:var(--rounded-full);font-weight:500}
+
+section{padding:var(--spacing-3xl) 0}
+.section-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md)}
+.section-label{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);text-transform:uppercase;letter-spacing:.1em;color:var(--colors-interactive);margin-bottom:var(--spacing-xs)}
+.section-title{font-family:var(--typography-h1-font);font-size:clamp(28px,4vw,var(--typography-h1-size));font-weight:var(--typography-h1-weight);line-height:1.15;margin-bottom:var(--spacing-xs)}
+.section-desc{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);color:var(--colors-secondary);max-width:640px;margin-bottom:var(--spacing-xl)}
+
+.divider{height:1px;background:var(--colors-background-muted);margin:0}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+.token-table{width:100%;border-collapse:collapse;font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size)}
+.token-table th{text-align:left;font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--colors-secondary);padding:var(--spacing-xs) var(--spacing-sm);border-bottom:2px solid var(--colors-background-muted)}
+.token-table td{padding:var(--spacing-xs) var(--spacing-sm);border-bottom:1px solid var(--colors-background-muted);vertical-align:middle}
+.token-table tr:hover td{background:var(--colors-background-alt)}
+.token-table code{font-family:'SF Mono',Consolas,monospace;font-size:13px;background:var(--colors-background-muted);padding:2px 8px;border-radius:4px;color:var(--colors-secondary)}
+
+/* ============================================================
+   COLOR SWATCH
+   ============================================================ */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--spacing-sm)}
+.swatch{border-radius:var(--rounded-md);overflow:hidden;border:1px solid var(--colors-background-muted);transition:transform .2s,box-shadow .2s}
+.swatch:hover{transform:translateY(-2px);box-shadow:var(--shadow-medium)}
+.swatch-color{height:100px;position:relative}
+.swatch-color .hex{position:absolute;bottom:8px;right:8px;font-family:'SF Mono',Consolas,monospace;font-size:12px;background:rgba(0,0,0,.45);color:#fff;padding:2px 8px;border-radius:4px}
+.swatch-body{padding:var(--spacing-xs) var(--spacing-sm);background:var(--colors-on-primary)}
+.swatch-name{font-family:var(--typography-label-md-font);font-size:var(--typography-body-md-size);font-weight:500;margin-bottom:2px}
+.swatch-token{font-family:'SF Mono',Consolas,monospace;font-size:12px;color:var(--colors-support);margin-bottom:4px}
+.swatch-role{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:var(--colors-secondary);line-height:1.4}
+
+/* ============================================================
+   TYPE SCALE
+   ============================================================ */
+.type-row{display:grid;grid-template-columns:160px 1fr;gap:var(--spacing-md);align-items:baseline;padding:var(--spacing-md) 0;border-bottom:1px solid var(--colors-background-muted)}
+@media(max-width:767px){.type-row{grid-template-columns:1fr;gap:var(--spacing-xs)}}
+.type-meta{font-family:'SF Mono',Consolas,monospace;font-size:12px;color:var(--colors-support)}
+.type-meta strong{display:block;font-family:var(--typography-label-md-font);font-size:var(--typography-body-md-size);color:var(--colors-text);margin-bottom:2px}
+.type-sample{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ============================================================
+   SPACING SCALE
+   ============================================================ */
+.spacing-row{display:grid;grid-template-columns:100px 100px 1fr;gap:var(--spacing-md);align-items:center;padding:var(--spacing-xs) 0;border-bottom:1px solid var(--colors-background-muted)}
+@media(max-width:639px){.spacing-row{grid-template-columns:80px 60px 1fr;gap:var(--spacing-xs)}}
+.spacing-label{font-family:'SF Mono',Consolas,monospace;font-size:13px;color:var(--colors-secondary)}
+.spacing-value{font-family:'SF Mono',Consolas,monospace;font-size:13px;color:var(--colors-support)}
+.spacing-bar{height:24px;background:var(--colors-interactive);border-radius:4px;transition:width .3s ease}
+
+/* ============================================================
+   SHAPES
+   ============================================================ */
+.shapes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--spacing-md);text-align:center}
+.shape-box{display:flex;flex-direction:column;align-items:center;gap:var(--spacing-xs)}
+.shape-preview{width:120px;height:120px;background:var(--colors-interactive);transition:transform .2s}
+.shape-preview:hover{transform:scale(1.05)}
+.shape-preview[data-rounded="sm"]{border-radius:var(--rounded-sm)}
+.shape-preview[data-rounded="md"]{border-radius:var(--rounded-md)}
+.shape-preview[data-rounded="full"]{border-radius:var(--rounded-full)}
+.shape-name{font-family:var(--typography-label-md-font);font-size:var(--typography-body-md-size);font-weight:500}
+.shape-val{font-family:'SF Mono',Consolas,monospace;font-size:13px;color:var(--colors-support)}
+
+/* ============================================================
+   SHADOWS
+   ============================================================ */
+.shadow-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--spacing-lg)}
+.shadow-box{display:flex;flex-direction:column;align-items:center;gap:var(--spacing-sm);text-align:center}
+.shadow-preview{width:100%;height:140px;background:var(--colors-on-primary);border-radius:var(--rounded-md);transition:transform .2s}
+.shadow-preview:hover{transform:translateY(-4px)}
+.shadow-preview[data-level="none"]{box-shadow:none}
+.shadow-preview[data-level="hover"]{box-shadow:var(--shadow-hover)}
+.shadow-preview[data-level="medium"]{box-shadow:var(--shadow-medium)}
+.shadow-preview[data-level="high"]{box-shadow:var(--shadow-high)}
+.shadow-name{font-family:var(--typography-label-md-font);font-size:var(--typography-body-md-size);font-weight:500}
+.shadow-val{font-family:'SF Mono',Consolas,monospace;font-size:12px;color:var(--colors-support);word-break:break-all}
+
+/* ============================================================
+   COMPONENT SHOWCASE
+   ============================================================ */
+.comp-group{margin-bottom:var(--spacing-2xl)}
+.comp-group-title{font-family:var(--typography-h2-font);font-size:var(--typography-h2-size);font-weight:var(--typography-h2-weight);line-height:var(--typography-h2-height);margin-bottom:var(--spacing-xs)}
+.comp-group-desc{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);color:var(--colors-secondary);margin-bottom:var(--spacing-md);max-width:640px}
+.comp-row{display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center;margin-bottom:var(--spacing-md)}
+.comp-label{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:var(--colors-support);margin-bottom:var(--spacing-2xs);text-transform:uppercase;letter-spacing:.05em}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-2xs);font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);padding:14px 24px;border-radius:var(--rounded-md);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s,transform .1s;text-decoration:none;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--colors-primary);color:var(--colors-on-primary)}
+.btn-primary:hover{background:var(--colors-primary-hover);box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
+.btn-secondary{background:var(--colors-secondary);color:var(--colors-on-primary)}
+.btn-secondary:hover{opacity:.9;box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
+.btn-ghost{background:var(--colors-background);color:var(--colors-secondary);border-color:var(--colors-secondary)}
+.btn-ghost:hover{background:var(--colors-background-alt)}
+.btn-sm{padding:10px 18px;font-size:14px}
+
+/* Cards */
+.card{background:var(--colors-background);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-background-muted);transition:box-shadow .2s,transform .2s;max-width:360px}
+.card:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
+.card-featured{background:var(--colors-background-alt);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .2s,transform .2s;max-width:360px}
+.card-featured:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
+.card-muted{background:var(--colors-background-muted);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .2s,transform .2s;max-width:360px}
+.card-muted:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+.warm-card{background:var(--colors-warm-support);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);transition:box-shadow .2s;max-width:360px}
+.warm-card:hover{box-shadow:var(--shadow-medium)}
+.editorial-card{background:var(--colors-editorial);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border-left:4px solid var(--colors-primary);transition:box-shadow .2s;max-width:360px}
+.editorial-card:hover{box-shadow:var(--shadow-medium)}
+.interactive-highlight{background:var(--colors-interactive);color:var(--colors-text);border-radius:var(--rounded-sm);font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);padding:var(--spacing-xs) var(--spacing-sm);transition:box-shadow .2s;max-width:360px}
+.interactive-highlight:hover{box-shadow:var(--shadow-hover)}
+.card h3{font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height);margin-bottom:var(--spacing-2xs)}
+.card p,.card-featured p,.card-muted p,.warm-card p,.editorial-card p,.interactive-highlight p{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height)}
+
+/* Input */
+.input-group{display:flex;flex-direction:column;gap:var(--spacing-3xs);max-width:360px}
+.input-label{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);color:var(--colors-text)}
+.input-field{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);padding:12px var(--spacing-sm);border:2px solid var(--colors-background-alt);border-radius:var(--rounded-sm);background:var(--colors-on-primary);color:var(--colors-text);outline:none;transition:border-color .2s,box-shadow .2s;height:48px}
+.input-field::placeholder{color:var(--colors-support)}
+.input-field:focus{border-color:var(--colors-interactive);box-shadow:var(--shadow-hover)}
+
+/* Badge & Tag */
+.badge{display:inline-flex;align-items:center;font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);line-height:var(--typography-caption-height);padding:3px 12px;border-radius:var(--rounded-full);white-space:nowrap;background:var(--colors-emphasis);color:var(--colors-text)}
+.tag{display:inline-flex;align-items:center;font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);font-weight:500;line-height:var(--typography-caption-height);padding:3px 12px;border-radius:var(--rounded-full);white-space:nowrap}
+.tag--accent{background:var(--colors-accent);color:var(--colors-text)}
+.tag--emphasis{background:var(--colors-emphasis);color:var(--colors-text)}
+.tag--interactive{background:var(--colors-interactive);color:var(--colors-text)}
+.tag--editorial{background:var(--colors-editorial);color:var(--colors-text)}
+.tag--warm{background:var(--colors-warm-support);color:var(--colors-text)}
+.tag--secondary{background:var(--colors-secondary);color:var(--colors-on-primary)}
+
+/* Nav link demo */
+.nav-demo{display:flex;gap:var(--spacing-md);flex-wrap:wrap}
+.nav-demo a{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);color:var(--colors-text);text-decoration:none;padding:var(--spacing-2xs) 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav-demo a:hover{color:var(--colors-primary);border-bottom-color:var(--colors-primary)}
+
+/* Footer */
+.page-footer{background:var(--colors-secondary);color:var(--colors-on-primary);padding:var(--spacing-xl) 0;text-align:center;margin-top:var(--spacing-3xl)}
+.page-footer p{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:var(--colors-background-muted)}
+
+/* Do / Don't */
+.dos-donts{display:grid;grid-template-columns:1fr;gap:var(--spacing-md)}
+@media(min-width:768px){.dos-donts{grid-template-columns:1fr 1fr}}
+.do-col,.dont-col{padding:var(--spacing-md);border-radius:var(--rounded-md)}
+.do-col{background:rgba(5,186,221,.08);border-left:4px solid var(--colors-interactive)}
+.dont-col{background:rgba(212,50,0,.06);border-left:4px solid var(--colors-primary)}
+.do-col h3,.dont-col h3{font-family:var(--typography-h4-font);font-size:var(--typography-h4-size);margin-bottom:var(--spacing-sm)}
+.do-col li,.dont-col li{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);margin-bottom:var(--spacing-xs);padding-left:var(--spacing-xs);position:relative}
+.do-col ul,.dont-col ul{list-style:none;padding:0}
+.do-col li::before{content:'✓';position:absolute;left:0;color:var(--colors-interactive);font-weight:700}
+.dont-col li::before{content:'✕';position:absolute;left:0;color:var(--colors-primary);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="page-nav" aria-label="Navegación del sistema de diseño">
+  <div class="page-nav-inner">
+    <a href="#top" class="page-nav-logo">
+      <img src="logo/logo.jpg" alt="Logo" width="32" height="32">
+      <span>VLRC Design System</span>
+    </a>
+    <span class="page-nav-badge">alpha</span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="page-header" id="top" style="padding-top:calc(64px + var(--spacing-3xl))">
+  <div class="section-inner" style="text-align:center">
+    <h1>VLRC Design System</h1>
+    <p>Sistema de diseño de Vanette — estética moderna, colorida y contemporánea para creadores y creativos.</p>
+  </div>
+</header>
+
+<!-- ============================================================
+     TABLE OF CONTENTS
+     ============================================================ -->
+<div class="toc" role="navigation" aria-label="Índice de secciones">
+  <div class="toc-inner">
+    <a href="#colors">Colores</a>
+    <a href="#typography">Tipografía</a>
+    <a href="#spacing">Espaciado</a>
+    <a href="#shapes">Formas</a>
+    <a href="#shadows">Elevación</a>
+    <a href="#components">Componentes</a>
+    <a href="#guidelines">Guías</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     COLORS
+     ============================================================ -->
+<section id="colors">
+  <div class="section-inner">
+    <p class="section-label">01 — Colors</p>
+    <h2 class="section-title">Paleta de colores</h2>
+    <p class="section-desc">La paleta se construye sobre colores complementarios — azul y naranja como ejes principales, con tonos de rojo que refuerzan la energía y amarillo que aporta calidez decorativa.</p>
+
+    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-sm)">Primarios</h3>
+    <div class="swatch-grid" style="margin-bottom:var(--spacing-xl)">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D43200"><span class="hex">#D43200</span></div>
+        <div class="swatch-body"><div class="swatch-name">Primary</div><div class="swatch-token">{colors.primary}</div><div class="swatch-role">Color principal de marca. Botones CTA, acentos, destacados y elementos clave de identidad.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B82A00"><span class="hex">#B82A00</span></div>
+        <div class="swatch-body"><div class="swatch-name">Primary Hover</div><div class="swatch-token">{colors.primary-hover}</div><div class="swatch-role">Estado hover del color primario. Versión más oscura para retroalimentación de interacción.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2B4871"><span class="hex">#2B4871</span></div>
+        <div class="swatch-body"><div class="swatch-name">Secondary</div><div class="swatch-token">{colors.secondary}</div><div class="swatch-role">Encabezados, navegación, texto destacado y elementos de alto contraste.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#05BADD"><span class="hex">#05BADD</span></div>
+        <div class="swatch-body"><div class="swatch-name">Interactive</div><div class="swatch-token">{colors.interactive}</div><div class="swatch-role">Enlaces, botones secundarios, iconografía y elementos que requieren atención visual.</div></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-sm)">Apoyo</h3>
+    <div class="swatch-grid" style="margin-bottom:var(--spacing-xl)">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#658FC5"><span class="hex">#658FC5</span></div>
+        <div class="swatch-body"><div class="swatch-name">Support</div><div class="swatch-token">{colors.support}</div><div class="swatch-role">Tarjetas, componentes secundarios y bloques de contenido.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FF8007"><span class="hex">#FF8007</span></div>
+        <div class="swatch-body"><div class="swatch-name">Emphasis</div><div class="swatch-token">{colors.emphasis}</div><div class="swatch-role">Resaltar información importante, indicadores y elementos promocionales.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFB404"><span class="hex">#FFB404</span></div>
+        <div class="swatch-body"><div class="swatch-name">Accent</div><div class="swatch-token">{colors.accent}</div><div class="swatch-role">Detalles gráficos, etiquetas, indicadores y elementos decorativos.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FF6B4A"><span class="hex">#FF6B4A</span></div>
+        <div class="swatch-body"><div class="swatch-name">Warm Support</div><div class="swatch-token">{colors.warm-support}</div><div class="swatch-role">Ilustraciones, recursos gráficos y elementos complementarios.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B49CD8"><span class="hex">#B49CD8</span></div>
+        <div class="swatch-body"><div class="swatch-name">Editorial</div><div class="swatch-token">{colors.editorial}</div><div class="swatch-role">Aplicaciones editoriales, composiciones especiales y recursos gráficos secundarios.</div></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-sm)">Superficies y fondos</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAFAF8;border-bottom:1px solid #eee"><span class="hex">#FAFAF8</span></div>
+        <div class="swatch-body"><div class="swatch-name">Background</div><div class="swatch-token">{colors.background}</div><div class="swatch-role">Fondo principal. Base para maximizar legibilidad y contraste.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C7D5EB"><span class="hex">#C7D5EB</span></div>
+        <div class="swatch-body"><div class="swatch-name">Background Alt</div><div class="swatch-token">{colors.background-alt}</div><div class="swatch-role">Diferenciar secciones, tarjetas y áreas de contenido.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D9E3F2"><span class="hex">#D9E3F2</span></div>
+        <div class="swatch-body"><div class="swatch-name">Background Muted</div><div class="swatch-token">{colors.background-muted}</div><div class="swatch-role">Contenedores, secciones diferenciadas y áreas de apoyo visual.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1F2D45"><span class="hex">#1F2D45</span></div>
+        <div class="swatch-body"><div class="swatch-name">Text</div><div class="swatch-token">{colors.text}</div><div class="swatch-role">Texto principal. Cuerpos de texto, encabezados y máxima legibilidad.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #eee"><span class="hex" style="background:rgba(0,0,0,.45)">#FFFFFF</span></div>
+        <div class="swatch-body"><div class="swatch-name">On Primary</div><div class="swatch-token">{colors.on-primary}</div><div class="swatch-role">Texto blanco sobre fondos de color intenso.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     TYPOGRAPHY
+     ============================================================ -->
+<section id="typography">
+  <div class="section-inner">
+    <p class="section-label">02 — Typography</p>
+    <h2 class="section-title">Escala tipográfica</h2>
+    <p class="section-desc">Tres familias con funciones específicas: Hypop-Heavy para impacto, NewYork para énfasis, Avenir para legibilidad continua.</p>
+
+    <div style="overflow-x:auto;margin-bottom:var(--spacing-xl)">
+      <table class="token-table">
+        <thead>
+          <tr><th>Nivel</th><th>Token</th><th>Familia</th><th>Tamaño</th><th>Peso</th><th>Interlineado</th><th>Uso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Display</strong></td><td><code>{typography.display}</code></td><td>Hypop-Heavy</td><td>64px</td><td>700</td><td>72px</td><td>Secciones más importantes y mensajes principales</td></tr>
+          <tr><td><strong>H1</strong></td><td><code>{typography.h1}</code></td><td>Hypop-Heavy</td><td>48px</td><td>700</td><td>56px</td><td>Encabezados de primer nivel</td></tr>
+          <tr><td><strong>H2</strong></td><td><code>{typography.h2}</code></td><td>Hypop-Heavy</td><td>36px</td><td>700</td><td>44px</td><td>Encabezados de segundo nivel</td></tr>
+          <tr><td><strong>H3</strong></td><td><code>{typography.h3}</code></td><td>NewYork</td><td>28px</td><td>400</td><td>36px</td><td>Encabezados de tercer nivel</td></tr>
+          <tr><td><strong>H4</strong></td><td><code>{typography.h4}</code></td><td>NewYork</td><td>22px</td><td>400</td><td>30px</td><td>Encabezados de cuarto nivel</td></tr>
+          <tr><td><strong>Body Large</strong></td><td><code>{typography.body-lg}</code></td><td>Avenir</td><td>18px</td><td>400</td><td>28px</td><td>Cuerpo principal, lectura cómoda</td></tr>
+          <tr><td><strong>Body Medium</strong></td><td><code>{typography.body-md}</code></td><td>Avenir</td><td>16px</td><td>400</td><td>24px</td><td>Texto secundario y contenido general</td></tr>
+          <tr><td><strong>Label</strong></td><td><code>{typography.label-md}</code></td><td>Avenir</td><td>16px</td><td>500</td><td>24px</td><td>Botones, navegación, etiquetas</td></tr>
+          <tr><td><strong>Caption</strong></td><td><code>{typography.caption}</code></td><td>Avenir</td><td>14px</td><td>400</td><td>20px</td><td>Etiquetas informativas y texto auxiliar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-md)">Muestra visual</h3>
+    <div class="type-row">
+      <div class="type-meta"><strong>Display</strong>64px / 72px · Hypop-Heavy</div>
+      <div class="type-sample" style="font-family:var(--typography-display-font);font-size:var(--typography-display-size);font-weight:var(--typography-display-weight);line-height:var(--typography-display-height)">Vanette</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>H1</strong>48px / 56px · Hypop-Heavy</div>
+      <div class="type-sample" style="font-family:var(--typography-h1-font);font-size:var(--typography-h1-size);font-weight:var(--typography-h1-weight);line-height:var(--typography-h1-height)">Diseñadora Gráfica</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>H2</strong>36px / 44px · Hypop-Heavy</div>
+      <div class="type-sample" style="font-family:var(--typography-h2-font);font-size:var(--typography-h2-size);font-weight:var(--typography-h2-weight);line-height:var(--typography-h2-height)">Proyectos destacados</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>H3</strong>28px / 36px · NewYork</div>
+      <div class="type-sample" style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height)">Subtítulo de proyecto</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>H4</strong>22px / 30px · NewYork</div>
+      <div class="type-sample" style="font-family:var(--typography-h4-font);font-size:var(--typography-h4-size);font-weight:var(--typography-h4-weight);line-height:var(--typography-h4-height)">Título de tarjeta</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Body LG</strong>18px / 28px · Avenir</div>
+      <div class="type-sample" style="font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height)">Cuerpo principal de texto para lectura cómoda en dispositivos digitales.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Body MD</strong>16px / 24px · Avenir</div>
+      <div class="type-sample" style="font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);font-weight:var(--typography-body-md-weight);line-height:var(--typography-body-md-height)">Texto secundario y contenido general del sistema.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Label</strong>16px / 24px · Avenir 500</div>
+      <div class="type-sample" style="font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height)">Etiqueta de botón o navegación</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Caption</strong>14px / 20px · Avenir</div>
+      <div class="type-sample" style="font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);font-weight:var(--typography-caption-weight);line-height:var(--typography-caption-height)">Etiqueta informativa y texto auxiliar</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SPACING
+     ============================================================ -->
+<section id="spacing">
+  <div class="section-inner">
+    <p class="section-label">03 — Spacing</p>
+    <h2 class="section-title">Escala de espaciado</h2>
+    <p class="section-desc">Basada en una unidad de 8px. Los valores siguen una progresión consistente para mantener orden visual en todos los componentes.</p>
+
+    <div class="spacing-row" style="border-bottom:2px solid var(--colors-background-muted);margin-bottom:var(--spacing-xs)"><div class="spacing-label" style="font-weight:600">Token</div><div class="spacing-value" style="font-weight:600">Valor</div><div style="font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:var(--colors-support);font-weight:600">Visualización</div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.3xs}</div><div class="spacing-value">4px</div><div class="spacing-bar" style="width:4px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.2xs}</div><div class="spacing-value">8px</div><div class="spacing-bar" style="width:8px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.xs}</div><div class="spacing-value">12px</div><div class="spacing-bar" style="width:12px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.sm}</div><div class="spacing-value">16px</div><div class="spacing-bar" style="width:16px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.md}</div><div class="spacing-value">24px</div><div class="spacing-bar" style="width:24px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.lg}</div><div class="spacing-value">32px</div><div class="spacing-bar" style="width:32px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.xl}</div><div class="spacing-value">40px</div><div class="spacing-bar" style="width:40px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.2xl}</div><div class="spacing-value">48px</div><div class="spacing-bar" style="width:48px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.3xl}</div><div class="spacing-value">64px</div><div class="spacing-bar" style="width:64px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.4xl}</div><div class="spacing-value">80px</div><div class="spacing-bar" style="width:80px"></div></div>
+    <div class="spacing-row"><div class="spacing-label">{spacing.5xl}</div><div class="spacing-value">96px</div><div class="spacing-bar" style="width:96px"></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SHAPES
+     ============================================================ -->
+<section id="shapes">
+  <div class="section-inner">
+    <p class="section-label">04 — Shapes</p>
+    <h2 class="section-title">Formas y radios</h2>
+    <p class="section-desc">Tres niveles de redondez que combinan estructura y dinamismo para reflejar el carácter creativo de la marca.</p>
+
+    <div class="shapes-grid">
+      <div class="shape-box">
+        <div class="shape-preview" data-rounded="sm"></div>
+        <div class="shape-name">Rounded SM</div>
+        <div class="shape-val">{rounded.sm} — 8px</div>
+      </div>
+      <div class="shape-box">
+        <div class="shape-preview" data-rounded="md"></div>
+        <div class="shape-name">Rounded MD</div>
+        <div class="shape-val">{rounded.md} — 16px</div>
+      </div>
+      <div class="shape-box">
+        <div class="shape-preview" data-rounded="full"></div>
+        <div class="shape-name">Rounded Full</div>
+        <div class="shape-val">{rounded.full} — 9999px</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SHADOWS
+     ============================================================ -->
+<section id="shadows">
+  <div class="section-inner">
+    <p class="section-label">05 — Elevation</p>
+    <h2 class="section-title">Sombras y elevación</h2>
+    <p class="section-desc">La profundidad se mantiene sutil y controlada. Las sombras refuerzan la interacción, indican elevación y diferencian capas.</p>
+
+    <div class="shadow-grid">
+      <div class="shadow-box">
+        <div class="shadow-preview" data-level="none"></div>
+        <div class="shadow-name">Base</div>
+        <div class="shadow-val">none</div>
+      </div>
+      <div class="shadow-box">
+        <div class="shadow-preview" data-level="hover"></div>
+        <div class="shadow-name">Hover</div>
+        <div class="shadow-val">0 2px 8px rgba(0,0,0,0.08)</div>
+      </div>
+      <div class="shadow-box">
+        <div class="shadow-preview" data-level="medium"></div>
+        <div class="shadow-name">Medium</div>
+        <div class="shadow-val">0 6px 16px rgba(0,0,0,0.12)</div>
+      </div>
+      <div class="shadow-box">
+        <div class="shadow-preview" data-level="high"></div>
+        <div class="shadow-name">High</div>
+        <div class="shadow-val">0 10px 24px rgba(0,0,0,0.16)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     COMPONENTS
+     ============================================================ -->
+<section id="components">
+  <div class="section-inner">
+    <p class="section-label">06 — Components</p>
+    <h2 class="section-title">Componentes</h2>
+    <p class="section-desc">Todos los componentes del sistema aplicando fielmente los tokens del DESIGN.md.</p>
+
+    <!-- BUTTONS -->
+    <div class="comp-group">
+      <h3 class="comp-group-title">Botones</h3>
+      <p class="comp-group-desc">Todos comparten estructura base pero varían en jerarquía visual. Tipografía label-md, esquinas rounded-md, padding 14px 24px.</p>
+      <div class="comp-label">Primarios</div>
+      <div class="comp-row">
+        <button class="btn btn-primary">Botón primario</button>
+        <button class="btn btn-primary" disabled style="opacity:.5;cursor:not-allowed">Deshabilitado</button>
+      </div>
+      <div class="comp-label">Secundarios</div>
+      <div class="comp-row">
+        <button class="btn btn-secondary">Botón secundario</button>
+        <button class="btn btn-secondary btn-sm">Pequeño</button>
+      </div>
+      <div class="comp-label">Fantasma</div>
+      <div class="comp-row">
+        <button class="btn btn-ghost">Botón fantasma</button>
+      </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="comp-group">
+      <h3 class="comp-group-title">Tarjetas y contenedores</h3>
+      <p class="comp-group-desc">Fondos y colores varían según jerarquía. Esquinas rounded-md, padding sm–md. Elevación al hacer hover.</p>
+      <div class="comp-row" style="align-items:stretch">
+        <div class="card"><h3>Card</h3><p>Fondo background, borde sutil. Para contenido general.</p></div>
+        <div class="card-featured"><h3>Card Featured</h3><p>Fondo background-alt. Para contenido destacado.</p></div>
+        <div class="card-muted"><h3>Card Muted</h3><p>Fondo background-muted. Para contenido de apoyo.</p></div>
+      </div>
+      <div class="comp-row" style="align-items:stretch">
+        <div class="warm-card"><h3>Warm Card</h3><p>Fondo warm-support. Para elementos cálidos y dinámicos.</p></div>
+        <div class="editorial-card"><h3>Editorial Card</h3><p>Fondo editorial con borde left primary. Para citas y énfasis editorial.</p></div>
+        <div class="interactive-highlight"><p>Interactive Highlight — fondo interactive, rounded-sm. Para detalles interactivos.</p></div>
+      </div>
+    </div>
+
+    <!-- INPUTS -->
+    <div class="comp-group">
+      <h3 class="comp-group-title">Campos y formularios</h3>
+      <p class="comp-group-desc">Fondo on-primary, borde 2px background-alt, esquinas rounded-sm, altura 48px. Focus: borde interactive + sombra.</p>
+      <div class="comp-row" style="align-items:flex-start;gap:var(--spacing-lg)">
+        <div class="input-group">
+          <label class="input-label" for="demo-name">Nombre</label>
+          <input class="input-field" type="text" id="demo-name" placeholder="Escribe tu nombre" autocomplete="off">
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="demo-email">Correo electrónico</label>
+          <input class="input-field" type="email" id="demo-email" placeholder="correo@ejemplo.com" autocomplete="off">
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="demo-msg">Mensaje</label>
+          <textarea class="input-field" id="demo-msg" placeholder="Escribe un mensaje..." rows="1" style="height:48px;resize:vertical"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV LINKS -->
+    <div class="comp-group">
+      <h3 class="comp-group-title">Navegación y enlaces</h3>
+      <p class="comp-group-desc">Tipografía label-md, color text. Hover: color primary con indicador visual.</p>
+      <div class="nav-demo">
+        <a href="#">Inicio</a>
+        <a href="#">Proyectos</a>
+        <a href="#">Sobre mí</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+
+    <!-- BADGES & TAGS -->
+    <div class="comp-group">
+      <h3 class="comp-group-title">Badges y etiquetas</h3>
+      <p class="comp-group-desc">Esquinas rounded-full, tipografía caption. Badges con emphasis, tags con 6 variantes de color.</p>
+      <div class="comp-label">Badge</div>
+      <div class="comp-row">
+        <span class="badge">Emphasis</span>
+      </div>
+      <div class="comp-label">Tags</div>
+      <div class="comp-row">
+        <span class="tag tag--accent">Accent</span>
+        <span class="tag tag--emphasis">Emphasis</span>
+        <span class="tag tag--interactive">Interactive</span>
+        <span class="tag tag--editorial">Editorial</span>
+        <span class="tag tag--warm">Warm</span>
+        <span class="tag tag--secondary">Secondary</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     DO'S & DON'TS
+     ============================================================ -->
+<section id="guidelines">
+  <div class="section-inner">
+    <p class="section-label">07 — Guidelines</p>
+    <h2 class="section-title">Do's & Don'ts</h2>
+    <p class="section-desc">La identidad debe sentirse creativa, vibrante, cercana y dinámica, pero siempre organizada.</p>
+
+    <div class="dos-donts">
+      <div class="do-col">
+        <h3 style="color:var(--colors-interactive)">Sí</h3>
+        <ul>
+          <li>Utiliza <code>{colors.primary}</code> para CTA's, elementos destacados y momentos clave de interacción.</li>
+          <li>Mantén <code>{colors.secondary}</code> para navegación, encabezados y contenido de alta jerarquía.</li>
+          <li>Utiliza <code>{colors.interactive}</code> para enlaces, detalles interactivos y elementos de apoyo visual.</li>
+          <li>Mantén un tamaño mínimo de 16px para texto de lectura continua.</li>
+          <li>Utiliza Avenir para contenido funcional, navegación y botones.</li>
+          <li>Reserva Hypop-Heavy para encabezados principales y mensajes de alto impacto.</li>
+          <li>Utiliza NewYork para subtítulos, frases destacadas y énfasis.</li>
+          <li>Mantén separación mínima de <code>{spacing.3xl}</code> (64px) entre secciones.</li>
+          <li>Utiliza imágenes, ilustraciones y bloques de color como parte activa de la composición.</li>
+          <li>Combina colores complementarios para generar contraste visual.</li>
+          <li>Utiliza esquinas <code>{rounded.sm}</code> y <code>{rounded.md}</code> para apariencia amigable.</li>
+          <li>Incorpora elementos decorativos que aporten valor a la composición.</li>
+          <li>Utiliza animaciones sutiles para reforzar la experiencia.</li>
+          <li>Prioriza siempre la legibilidad y la claridad.</li>
+        </ul>
+      </div>
+      <div class="dont-col">
+        <h3 style="color:var(--colors-primary)">No</h3>
+        <ul>
+          <li>No utilices más de dos colores de énfasis en un mismo componente.</li>
+          <li>No emplees toda la paleta al mismo tiempo en una sección.</li>
+          <li>No utilices Hypop-Heavy para párrafos o bloques extensos.</li>
+          <li>No abuses de NewYork en elementos funcionales.</li>
+          <li>No reduzcas el cuerpo de texto por debajo de 16px.</li>
+          <li>No utilices sombras excesivamente profundas.</li>
+          <li>No utilices degradados complejos que compitan con el contenido.</li>
+          <li>No satures la interfaz con decoración innecesaria.</li>
+          <li>No coloques texto sobre fondos de bajo contraste.</li>
+          <li>No utilices más de tres niveles de énfasis en una sección.</li>
+          <li>No centres bloques largos de texto.</li>
+          <li>No utilices recursos visuales fuera de la estética de la marca.</li>
+          <li>No dependas únicamente del color para comunicar estados.</li>
+          <li>No sacrifiques la experiencia de usuario por la estética.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="page-footer">
+  <div class="section-inner">
+    <p>VLRC Design System — alpha · Todos los tokens aplicados desde DESIGN.md</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JS — Scroll spy + smooth reveal
+     ============================================================ -->
+<script>
+(function(){
+  var tocLinks=document.querySelectorAll('.toc a');
+  var sections=document.querySelectorAll('section[id]');
+  var navLinks=document.querySelectorAll('.toc a');
+
+  function updateActive(){
+    var scrollY=window.scrollY+120;
+    sections.forEach(function(s){
+      var top=s.offsetTop;
+      var h=s.offsetHeight;
+      var id=s.getAttribute('id');
+      if(scrollY>=top&&scrollY<top+h){
+        tocLinks.forEach(function(l){
+          l.classList.remove('active');
+          if(l.getAttribute('href')==='#'+id)l.classList.add('active');
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll',updateActive,{passive:true});
+  updateActive();
+
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';observer.unobserve(e.target)}
+      });
+    },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.swatch,.shape-box,.shadow-box,.comp-group,.dos-donts').forEach(function(el){
+      el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity .5s ease,transform .5s ease';
+      observer.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>
