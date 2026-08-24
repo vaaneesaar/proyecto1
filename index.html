@@ -523,12 +523,15 @@ a:hover{color:var(--colors-interactive-hover)}
 /* ============================================================
    STAT CARDS — Tarjetas de estadísticas grandes
    ============================================================ */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-sm);margin-top:var(--spacing-lg)}
-.stat-card{background:rgba(255,255,255,.85);border-radius:var(--rounded-md);padding:var(--spacing-md);text-align:center;border:1px solid rgba(255,255,255,.5);transition:box-shadow .2s,transform .2s}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-sm);margin-top:var(--spacing-lg)}
+.stat-card{border-radius:var(--rounded-md);padding:var(--spacing-md);text-align:center;transition:box-shadow .2s,transform .2s;color:var(--colors-on-primary)}
 .stat-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
-.stat-card .stat-num{font-family:var(--typography-display-font);font-size:clamp(32px,5vw,48px);font-weight:700;line-height:1;color:var(--colors-primary);margin-bottom:var(--spacing-2xs)}
-.stat-card .stat-label{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);text-transform:uppercase;letter-spacing:.08em;color:rgba(31,45,69,.7)}
-@media(max-width:767px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat-card:nth-child(1){background:var(--colors-primary)}
+.stat-card:nth-child(2){background:var(--colors-interactive)}
+.stat-card:nth-child(3){background:var(--colors-emphasis)}
+.stat-card .stat-num{font-family:var(--typography-display-font);font-size:clamp(32px,5vw,48px);font-weight:700;line-height:1;margin-bottom:var(--spacing-2xs)}
+.stat-card .stat-label{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:767px){.stats-grid{grid-template-columns:repeat(3,1fr)}}
 
 /* ============================================================
    ORGANIC PHOTO MASK — Foto con máscara orgánica
@@ -834,10 +837,6 @@ a:hover{color:var(--colors-interactive-hover)}
       <div class="stat-card fade-up">
         <div class="stat-num">3+</div>
         <div class="stat-label">Años de experiencia</div>
-      </div>
-      <div class="stat-card fade-up">
-        <div class="stat-num">6</div>
-        <div class="stat-label">Países visitados</div>
       </div>
       <div class="stat-card fade-up">
         <div class="stat-num">15+</div>
