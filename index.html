@@ -582,6 +582,240 @@ a:hover{color:var(--colors-interactive-hover)}
 .stat-card{border-radius:var(--rounded-md);transition:transform .3s,box-shadow .3s}
 .stat-card:hover{transform:translateY(-4px) rotate(1deg)}
 .stat-card:nth-child(even):hover{transform:translateY(-4px) rotate(-1deg)}
+
+/* ============================================================
+   SCRAPBOOK LAYER — textures, collage, stickers, torn edges
+   ============================================================ */
+
+/* --- Paper grain texture on body --- */
+body::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.4;
+}
+
+/* --- Section paper texture --- */
+.section::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.35;
+}
+
+/* --- Torn paper edge on sections --- */
+.section{position:relative;overflow:visible}
+.section::after{
+  content:'';position:absolute;bottom:-8px;left:0;width:100%;height:16px;z-index:2;pointer-events:none;
+  background:inherit;
+  clip-path:polygon(
+    0% 0%, 3% 40%, 5% 10%, 8% 50%, 10% 15%, 13% 45%, 15% 8%, 18% 55%,
+    20% 12%, 23% 48%, 25% 5%, 28% 52%, 30% 18%, 33% 42%, 35% 8%, 38% 50%,
+    40% 15%, 43% 45%, 45% 10%, 48% 55%, 50% 12%, 53% 48%, 55% 5%, 58% 52%,
+    60% 18%, 63% 42%, 65% 8%, 68% 50%, 70% 15%, 73% 45%, 75% 10%, 78% 55%,
+    80% 12%, 83% 48%, 85% 5%, 88% 52%, 90% 18%, 93% 42%, 95% 8%, 98% 50%, 100% 0%
+  );
+}
+
+/* --- Washi tape on project cards --- */
+.project-card{position:relative}
+.project-card::before{
+  content:'';position:absolute;top:-6px;left:30px;width:70px;height:20px;z-index:3;
+  background:linear-gradient(135deg,rgba(255,214,0,.7),rgba(255,214,0,.4));
+  transform:rotate(-3deg);
+  border-radius:1px;
+}
+.project-card:nth-child(2n)::before{background:linear-gradient(135deg,rgba(123,97,255,.6),rgba(123,97,255,.35));left:auto;right:30px;transform:rotate(2deg)}
+.project-card:nth-child(3n)::before{background:linear-gradient(135deg,rgba(255,77,106,.6),rgba(255,77,106,.35));left:50%;transform:rotate(-1deg)}
+
+/* --- Polaroid frame on project card images --- */
+.project-card-img{
+  border-bottom:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+.project-card-body{
+  background:#FEFEFE;
+  border-top:3px solid #F5F0E8;
+}
+
+/* --- Sticker / tape on editorial card --- */
+.editorial-card{position:relative;transform:rotate(-.5deg)}
+.editorial-card::before{
+  content:'';position:absolute;top:-8px;right:40px;width:60px;height:18px;z-index:2;
+  background:linear-gradient(135deg,rgba(255,128,7,.65),rgba(255,128,7,.35));
+  transform:rotate(4deg);border-radius:1px;
+}
+
+/* --- Sticker on skill cells --- */
+.skill-cell{position:relative;transform:rotate(.3deg);transition:transform .2s,box-shadow .2s}
+.skill-cell:nth-child(odd){transform:rotate(-.5deg)}
+.skill-cell:nth-child(even){transform:rotate(.4deg)}
+.skill-cell:hover{transform:rotate(0deg) translateY(-3px);box-shadow:var(--shadow-medium)}
+
+/* --- Washi tape on stickers --- */
+.sticker{position:relative}
+.sticker::before{
+  content:'';position:absolute;top:-4px;left:50%;width:40px;height:12px;z-index:3;
+  background:linear-gradient(135deg,rgba(228,30,99,.55),rgba(228,30,99,.3));
+  transform:translateX(-50%) rotate(-6deg);border-radius:1px;
+}
+
+/* --- Ribbon lace border on sobre-mí section --- */
+.section--violet::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:100%;height:20px;z-index:3;pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg,transparent 0,transparent 8px,rgba(255,255,255,.12) 8px,rgba(255,255,255,.12) 16px);
+  clip-path:polygon(
+    0% 0%, 4% 60%, 8% 20%, 12% 70%, 16% 15%, 20% 65%, 24% 10%, 28% 72%, 32% 18%, 36% 68%,
+    40% 8%, 44% 70%, 48% 20%, 52% 65%, 56% 12%, 60% 72%, 64% 18%, 68% 68%, 72% 8%,
+    76% 70%, 80% 20%, 84% 65%, 88% 12%, 92% 72%, 96% 18%, 100% 0%
+  );
+}
+
+/* --- Notebook rings on experience section --- */
+.section--sky .container::before{
+  content:'';position:absolute;top:40px;left:-20px;width:40px;height:100%;z-index:5;pointer-events:none;
+  background:repeating-linear-gradient(180deg,
+    transparent 0,transparent 58px,
+    rgba(31,45,69,.2) 58px,rgba(31,45,69,.2) 62px,
+    transparent 62px,transparent 68px
+  );
+}
+.section--sky .container{position:relative}
+
+/* --- Tape on stat cards --- */
+.stat-card{position:relative;transform:rotate(.5deg)}
+.stat-card:nth-child(2){transform:rotate(-.3deg)}
+.stat-card:nth-child(3){transform:rotate(.7deg)}
+.stat-card::before{
+  content:'';position:absolute;top:-6px;left:50%;width:50px;height:14px;z-index:3;
+  background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.4));
+  transform:translateX(-50%) rotate(-2deg);border-radius:1px;
+}
+
+/* --- Collage tilt on hero image --- */
+.hero-img-wrap{
+  transform:rotate(1.5deg);
+  transition:transform .3s ease;
+}
+.hero-img-wrap:hover{transform:rotate(0deg) scale(1.02)}
+
+/* --- Tape on hero image --- */
+.hero-img-wrap::before{
+  content:'';position:absolute;top:-10px;left:50%;width:80px;height:20px;z-index:5;
+  background:linear-gradient(135deg,rgba(255,214,0,.6),rgba(255,214,0,.3));
+  transform:translateX(-50%) rotate(-4deg);border-radius:1px;
+}
+
+/* --- Photo corner on about blob --- */
+.about-img .blob-mask{
+  border:6px solid #F5F0E8;
+  box-shadow:4px 4px 0 rgba(0,0,0,.08), inset 0 0 20px rgba(0,0,0,.03);
+  transform:rotate(-1deg);
+  transition:transform .3s;
+}
+.about-img .blob-mask:hover{transform:rotate(0deg)}
+
+/* --- Education photos as instant photos --- */
+.edu-tl-photo img{
+  border:4px solid #FEFEFE;
+  box-shadow:3px 3px 0 rgba(0,0,0,.1);
+}
+.edu-tl-entry{transition:transform .3s}
+.edu-tl-entry:hover{transform:scale(1.05) rotate(-1deg)}
+
+/* --- Scrapbook sticker decorations --- */
+.hero::after{
+  content:'';position:absolute;width:350px;height:350px;border-radius:50%;
+  background:rgba(5,186,221,.12);bottom:-80px;left:-60px;pointer-events:none;
+}
+.hero .squiggly{opacity:.6}
+
+/* --- Contact buttons like cut-out paper --- */
+.contact-btn{
+  position:relative;border:2px solid rgba(31,45,69,.15)!important;
+  background:rgba(255,255,255,.88)!important;
+  box-shadow:3px 3px 0 rgba(0,0,0,.06);
+  transition:transform .2s,box-shadow .2s;
+}
+.contact-btn:hover{
+  box-shadow:5px 5px 0 rgba(0,0,0,.1);
+  transform:translateY(-2px) rotate(-.5deg)!important;
+}
+
+/* --- Marquee like torn paper strip --- */
+.marquee{
+  position:relative;
+  border-top:2px dashed rgba(31,45,69,.1);
+  border-bottom:2px dashed rgba(31,45,69,.1);
+}
+
+/* --- Footer like fabric texture --- */
+.footer{
+  position:relative;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.03) 3px,rgba(255,255,255,.03) 4px),
+    repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(255,255,255,.03) 3px,rgba(255,255,255,.03) 4px);
+}
+
+/* --- Buttons like cut paper --- */
+.btn-primary{
+  box-shadow:3px 3px 0 rgba(212,50,0,.25)!important;
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-primary:hover{
+  box-shadow:5px 5px 0 rgba(212,50,0,.3)!important;
+  transform:translateY(-2px) rotate(-1deg)!important;
+}
+.btn-ghost{
+  border-style:dashed!important;
+}
+
+/* --- Nav like paper strip --- */
+.nav{
+  border-bottom:2px dashed rgba(31,45,69,.12)!important;
+  background:rgba(255,255,255,.92)!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+
+/* --- Skills section grid like pinned paper --- */
+.section--skills .skills-table{
+  position:relative;
+}
+
+/* --- Handwritten feel on labels --- */
+.section-label{
+  font-style:italic;
+  letter-spacing:.08em;
+}
+
+/* --- Scrapbook collage: odd-even card tilt --- */
+.project-card:nth-child(odd){transform:rotate(-.3deg)}
+.project-card:nth-child(even){transform:rotate(.4deg)}
+.project-card:nth-child(3n){transform:rotate(-.6deg)}
+
+/* --- Pencil stitch line on cards --- */
+.card,.card-featured,.card-muted{
+  border:2px dashed rgba(31,45,69,.1)!important;
+  background-image:
+    linear-gradient(to right,rgba(0,0,0,.01) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(0,0,0,.01) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+
+/* --- Corner fold effect on project cards --- */
+.project-card::after{
+  content:'';position:absolute;top:0;right:0;width:0;height:0;z-index:4;
+  border-style:solid;border-width:0 28px 28px 0;
+  border-color:transparent rgba(31,45,69,.06) transparent transparent;
+  transition:border-width .2s;
+}
+.project-card:hover::after{border-width:0 35px 35px 0}
+
+/* --- Reduce motion --- */
+@media(prefers-reduced-motion:reduce){
+  .hero-img-wrap,.about-img .blob-mask,.skill-cell,.stat-card,.project-card,.edu-tl-entry{
+    transform:none!important;
+  }
+}
 </style>
 </head>
 <body>
