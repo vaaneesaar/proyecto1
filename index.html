@@ -94,9 +94,9 @@ a:hover{color:var(--colors-interactive-hover)}
 .nav-logo-isotipo{height:40px;width:auto;object-fit:contain}
 .nav-logo-logotipo{height:32px;width:auto;object-fit:contain}
 .nav-links{display:flex;gap:var(--spacing-md);list-style:none}
-.nav-links a{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);color:var(--colors-text);padding:var(--spacing-3xs) var(--spacing-xs);border-radius:var(--rounded-full);transition:background .2s,color .2s,border-color .2s;min-height:44px;display:flex;align-items:center;border:2px solid #E91E63}
-.nav-links a:hover{color:var(--colors-on-primary);background:var(--colors-interactive-hover);border-color:var(--colors-interactive-hover)}
-.nav-links a.active{color:var(--colors-on-primary);background:var(--colors-interactive);border-color:var(--colors-interactive)}
+.nav-links a{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);color:var(--colors-on-primary);padding:var(--spacing-3xs) var(--spacing-xs);border-radius:var(--rounded-full);transition:background .2s,color .2s;min-height:44px;display:flex;align-items:center;background:#E91E63}
+.nav-links a:hover{background:var(--colors-interactive-hover)}
+.nav-links a.active{background:var(--colors-interactive)}
 @media(max-width:767px){.nav-links{display:none}}
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:var(--spacing-2xs);color:var(--colors-text);min-width:44px;min-height:44px;align-items:center;justify-content:center}
 .nav-hamburger svg{width:28px;height:28px}
@@ -565,8 +565,8 @@ a:hover{color:var(--colors-interactive-hover)}
 .section--violet .editorial-card{border-radius:var(--rounded-md);border-left:none;position:relative;overflow:hidden}
 .section--violet .editorial-card::before{content:'"';position:absolute;top:-10px;left:10px;font-size:80px;font-family:Georgia,serif;color:rgba(255,255,255,.2);line-height:1}
 
-.nav-links a{border-radius:var(--rounded-full)!important;border:2px solid #E91E63}
-.nav-links a.active{background:var(--colors-interactive);color:var(--colors-on-primary)!important;border-color:var(--colors-interactive)}
+.nav-links a{border-radius:var(--rounded-full)!important;background:#E91E63;color:var(--colors-on-primary)}
+.nav-links a.active{background:var(--colors-interactive)}
 
 .contact-btn{border-radius:var(--rounded-full)!important}
 .contact-btn:hover{transform:translateY(-3px) rotate(-1deg)}
