@@ -328,7 +328,7 @@ a:hover{color:var(--colors-interactive-hover)}
 /* ============================================================
    TIMELINE — Educación (curvy path)
    ============================================================ */
-.edu-timeline{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;padding:var(--spacing-xl) 0;-webkit-overflow-scrolling:touch}
+.edu-timeline{position:relative;width:100%;overflow:hidden;padding:var(--spacing-xl) 0}
 .edu-timeline-track{position:relative;min-width:1200px;height:420px;margin:0 auto}
 .edu-timeline svg.curve-path{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
 .edu-timeline svg.curve-path path{fill:none;stroke:#1E56C7;stroke-width:3;stroke-linecap:round}
@@ -351,7 +351,7 @@ a:hover{color:var(--colors-interactive-hover)}
 .edu-tl-info h3{font-family:var(--typography-h4-font);font-size:13px;font-weight:var(--typography-h4-weight);line-height:1.3;color:var(--colors-text);margin-bottom:2px}
 .edu-tl-info .meta{font-family:var(--typography-caption-font);font-size:11px;color:rgba(31,45,69,.6)}
 @media(max-width:767px){
-  .edu-timeline{overflow-x:visible;padding:var(--spacing-md) 0}
+  .edu-timeline{overflow:hidden;padding:var(--spacing-md) 0}
   .edu-timeline-track{min-width:auto;height:auto;display:flex;flex-direction:column;gap:var(--spacing-xl);padding:0 var(--spacing-md)}
   .edu-tl-entry{position:relative !important;left:auto !important;top:auto !important;flex-direction:row;gap:var(--spacing-md);align-items:flex-start}
   .edu-tl-photo{flex-shrink:0}
@@ -864,9 +864,9 @@ a:hover{color:var(--colors-interactive-hover)}
     <p class="section-label fade-up">Formación</p>
     <h2 class="section-title fade-up">Educación</h2>
     <div class="curved-text fade-up" aria-hidden="true">
-      <svg viewBox="0 0 600 80"><path id="curve-edu" d="M30,60 Q300,10 570,60" fill="none"/><text><textPath href="#curve-edu" startOffset="50%" text-anchor="middle">4 países ✦ 6 instituciones ✦ Experiencia internacional ✦</textPath></text></svg>
+      <svg viewBox="0 0 600 80"><path id="curve-edu" d="M30,60 Q300,10 570,60" fill="none"/><text><textPath href="#curve-edu" startOffset="50%" text-anchor="middle">✦ 6 instituciones ✦ Experiencia internacional ✦</textPath></text></svg>
     </div>
-    <p class="section-desc fade-up">Mi trayectoria académica con experiencias internacionales en cuatro países.</p>
+    <p class="section-desc fade-up">Mi formación académica con experiencias internacionales en distintos países.</p>
     <div class="edu-timeline">
         <div class="edu-timeline-track">
         <svg class="curve-path" viewBox="0 0 1200 420" preserveAspectRatio="none"><path d="M80,100 C200,100 200,300 350,300 C500,300 500,100 650,100 C800,100 800,300 950,300 C1100,300 1100,100 1200,100"/></svg>
@@ -945,11 +945,6 @@ a:hover{color:var(--colors-interactive-hover)}
           <div class="edu-tl-info">
             <h3>Licenciatura en Diseño Gráfico</h3>
             <p class="meta">Universidad La Salle México · Actualidad</p>
-          </div>
-        </div>
-      </div>
-            <h3>Preparatoria</h3>
-            <p class="meta">Universidad La Salle México</p>
           </div>
         </div>
       </div>
