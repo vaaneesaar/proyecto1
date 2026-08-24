@@ -241,14 +241,14 @@ section{padding:var(--spacing-3xl) 0;position:relative}
    PLAYFUL MILU STYLE — Fondos de color, tarjetas inclinadas, cintas curvas
    ============================================================ */
 
-/* --- Section backgrounds --- */
-#colors{background:linear-gradient(180deg,#FDE8E0 0%,#FFF5EE 100%)}
-#typography{background:linear-gradient(180deg,#E8F4FD 0%,#F0F8FF 100%)}
-#spacing{background:linear-gradient(180deg,#FFF8E1 0%,#FFFDF5 100%)}
-#shapes{background:linear-gradient(180deg,#F3E8FD 0%,#FAF5FF 100%)}
-#shadows{background:linear-gradient(180deg,#E0F7FA 0%,#F0FFFE 100%)}
-#components{background:linear-gradient(180deg,#FFF3E0 0%,#FFFBF5 100%)}
-#guidelines{background:linear-gradient(180deg,#FCE4EC 0%,#FFF0F3 100%)}
+/* --- Section backgrounds (brillantes) --- */
+#colors{background:linear-gradient(180deg,#FFD6C0 0%,#FFE8DD 100%)}
+#typography{background:linear-gradient(180deg,#B3E5FC 0%,#D6F0FF 100%)}
+#spacing{background:linear-gradient(180deg,#FFF176 0%,#FFF9C4 100%)}
+#shapes{background:linear-gradient(180deg,#CE93D8 0%,#E1BEE7 100%)}
+#shadows{background:linear-gradient(180deg,#80DEEA 0%,#B2EBF2 100%)}
+#components{background:linear-gradient(180deg,#FFCC80 0%,#FFE0B2 100%)}
+#guidelines{background:linear-gradient(180deg,#F48FB1 0%,#F8BBD0 100%)}
 
 /* --- Tilted numbered cards (MILU 01-04) --- */
 .tilted-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-md);margin:var(--spacing-xl) 0}
@@ -256,13 +256,13 @@ section{padding:var(--spacing-3xl) 0;position:relative}
 @media(max-width:500px){.tilted-cards{grid-template-columns:1fr}}
 .tilted-card{border-radius:var(--rounded-md);padding:var(--spacing-md);min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .tilted-card:hover{box-shadow:var(--shadow-high)}
-.tilted-card:nth-child(1){background:var(--colors-primary);color:var(--colors-on-primary);transform:rotate(-3deg)}
+.tilted-card:nth-child(1){background:#E53935;color:var(--colors-on-primary);transform:rotate(-3deg)}
 .tilted-card:nth-child(1):hover{transform:rotate(-1deg) translateY(-4px)}
-.tilted-card:nth-child(2){background:#E91E8C;color:var(--colors-on-primary);transform:rotate(2deg)}
+.tilted-card:nth-child(2){background:#E91E63;color:var(--colors-on-primary);transform:rotate(2deg)}
 .tilted-card:nth-child(2):hover{transform:rotate(0deg) translateY(-4px)}
-.tilted-card:nth-child(3){background:var(--colors-emphasis);color:var(--colors-on-primary);transform:rotate(-1deg)}
+.tilted-card:nth-child(3){background:#FF6D00;color:var(--colors-on-primary);transform:rotate(-1deg)}
 .tilted-card:nth-child(3):hover{transform:rotate(1deg) translateY(-4px)}
-.tilted-card:nth-child(4){background:var(--colors-accent);color:var(--colors-text);transform:rotate(3deg)}
+.tilted-card:nth-child(4){background:#FFD600;color:var(--colors-text);transform:rotate(3deg)}
 .tilted-card:nth-child(4):hover{transform:rotate(1deg) translateY(-4px)}
 .tilted-card-num{font-family:var(--typography-display-font);font-size:48px;font-weight:700;line-height:1;margin-bottom:var(--spacing-xs);opacity:.9}
 .tilted-card h3{font-family:var(--typography-h2-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h2-weight);line-height:1.2;margin-bottom:var(--spacing-2xs)}
@@ -273,24 +273,24 @@ section{padding:var(--spacing-3xl) 0;position:relative}
 .ribbon{position:relative;overflow:hidden;padding:var(--spacing-lg) 0;margin:var(--spacing-md) 0}
 .ribbon svg{width:100%;height:auto;display:block}
 .ribbon svg text{font-family:var(--typography-display-font);font-size:18px;letter-spacing:.04em}
-.ribbon--yellow{background:var(--colors-accent)}
+.ribbon--yellow{background:#FFD600}
 .ribbon--yellow svg text{fill:var(--colors-text)}
-.ribbon--pink{background:#E91E8C}
+.ribbon--pink{background:#E91E63}
 .ribbon--pink svg text{fill:var(--colors-on-primary)}
-.ribbon--blue{background:var(--colors-interactive)}
-.ribbon--blue svg text{fill:var(--colors-text)}
-.ribbon--red{background:var(--colors-primary)}
+.ribbon--blue{background:#00B0FF}
+.ribbon--blue svg text{fill:var(--colors-on-primary)}
+.ribbon--red{background:#E53935}
 .ribbon--red svg text{fill:var(--colors-on-primary)}
-.ribbon--editorial{background:var(--colors-editorial)}
-.ribbon--editorial svg text{fill:var(--colors-text)}
+.ribbon--editorial{background:#AB47BC}
+.ribbon--editorial svg text{fill:var(--colors-on-primary)}
 
 /* --- Organic blob decorations --- */
 .blob-deco{position:absolute;pointer-events:none;z-index:0;border-radius:50%;filter:blur(0px)}
-.blob-deco--yellow{background:rgba(255,180,4,.12)}
-.blob-deco--cyan{background:rgba(5,186,221,.1)}
-.blob-deco--pink{background:rgba(233,30,140,.08)}
-.blob-deco--red{background:rgba(212,50,0,.06)}
-.blob-deco--violet{background:rgba(180,156,216,.1)}
+.blob-deco--yellow{background:rgba(255,214,0,.25)}
+.blob-deco--cyan{background:rgba(0,176,255,.2)}
+.blob-deco--pink{background:rgba(233,30,99,.18)}
+.blob-deco--red{background:rgba(229,57,53,.15)}
+.blob-deco--violet{background:rgba(171,71,188,.2)}
 
 /* --- Scallop frame --- */
 .scallop-frame{position:relative;display:inline-block}
