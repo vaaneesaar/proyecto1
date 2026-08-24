@@ -102,10 +102,10 @@ a:hover{color:var(--colors-interactive-hover)}
 .nav-hamburger svg{width:28px;height:28px}
 @media(max-width:767px){.nav-hamburger{display:flex}}
 
-.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--colors-background);z-index:99;padding:var(--spacing-lg) var(--spacing-md);flex-direction:column;gap:var(--spacing-sm)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--colors-interactive);z-index:99;padding:var(--spacing-lg) var(--spacing-md);flex-direction:column;gap:var(--spacing-sm)}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-family:var(--typography-display-font);font-size:var(--typography-h3-size);color:var(--colors-text);padding:var(--spacing-sm) 0;border-bottom:1px solid var(--colors-background-muted);transition:color .2s;min-height:44px;display:flex;align-items:center}
-.mobile-menu a:hover{color:var(--colors-interactive-hover)}
+.mobile-menu a{font-family:var(--typography-display-font);font-size:var(--typography-h3-size);color:var(--colors-on-primary);padding:var(--spacing-sm) 0;border-bottom:1px solid rgba(255,255,255,.3);transition:color .2s;min-height:44px;display:flex;align-items:center}
+.mobile-menu a:hover{color:rgba(255,255,255,.7)}
 
 /* ============================================================
    BUTTONS — button-primary, button-secondary, button-ghost
