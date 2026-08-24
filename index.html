@@ -594,7 +594,7 @@ body::before{
   opacity:.4;
 }
 
-/* --- Section paper texture --- */
+/* --- Kraft paper texture on sections --- */
 .section::before{
   content:'';position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;
   background-image:url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
@@ -615,26 +615,174 @@ body::before{
   );
 }
 
+/* ============================================================
+   DESIGN-THEMED STICKERS — positioned at edges, away from text
+   ============================================================ */
+
+/* --- HERO: Color palette sticker (top-right, near photo) --- */
+.hero::after{
+  content:'';position:absolute;width:110px;height:90px;z-index:3;pointer-events:none;
+  top:120px;right:80px;
+  background:
+    radial-gradient(circle 10px at 20px 25px, #D43200 100%, transparent 100%),
+    radial-gradient(circle 10px at 50px 20px, #FFB404 100%, transparent 100%),
+    radial-gradient(circle 10px at 80px 30px, #05BADD 100%, transparent 100%),
+    radial-gradient(circle 10px at 35px 55px, #7B61FF 100%, transparent 100%),
+    radial-gradient(circle 10px at 65px 60px, #FF8007 100%, transparent 100%),
+    radial-gradient(circle 8px at 90px 55px, #E91E63 100%, transparent 100%);
+  border:3px solid #F5F0E8;border-radius:12px;
+  box-shadow:3px 3px 0 rgba(0,0,0,.08);
+  transform:rotate(8deg);
+}
+@media(max-width:767px){.hero::after{display:none}}
+
+/* --- HERO: Pencil sticker (bottom-left of text area) --- */
+.hero-text::after{
+  content:'';position:absolute;width:10px;height:80px;z-index:3;pointer-events:none;
+  bottom:-30px;left:-25px;
+  background:linear-gradient(180deg,#FFB404 0%,#FFB404 75%,#F5D5A0 75%,#F5D5A0 85%,#1F2D45 85%);
+  border-radius:2px 2px 0 0;
+  transform:rotate(15deg);
+  box-shadow:2px 2px 0 rgba(0,0,0,.1);
+}
+.hero-text{position:relative}
+@media(max-width:767px){.hero-text::after{display:none}}
+
+/* --- SOBRE MÍ: Scissors sticker (top-right corner, away from text) --- */
+.section--violet::before{
+  content:'✂';position:absolute;z-index:3;pointer-events:none;
+  top:60px;right:80px;font-size:48px;color:rgba(255,255,255,.2);
+  transform:rotate(25deg);
+  text-shadow:2px 2px 0 rgba(0,0,0,.05);
+}
+
+/* --- PROYECTOS: Ruler sticker (top edge, left side) --- */
+.section--projects::before{
+  content:'';position:absolute;z-index:3;pointer-events:none;
+  top:15px;left:30px;width:200px;height:28px;
+  background:repeating-linear-gradient(90deg,
+    rgba(31,45,69,.15) 0,rgba(31,45,69,.15) 1px,transparent 1px,transparent 19px,
+    rgba(31,45,69,.25) 19px,rgba(31,45,69,.25) 20px
+  );
+  border:2px solid rgba(31,45,69,.12);border-radius:2px;
+  transform:rotate(-1deg);
+}
+@media(max-width:767px){.section--projects::before{width:120px;height:22px;top:10px;left:15px}}
+
+/* --- EXPERIENCIA: Pushpin sticker (top-right) --- */
+.section--sky .container::after{
+  content:'';position:absolute;z-index:5;pointer-events:none;
+  top:20px;right:40px;width:24px;height:24px;
+  background:radial-gradient(circle at 50% 40%,#E91E63 40%,#C2185B 100%);
+  border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  box-shadow:2px 2px 0 rgba(0,0,0,.15);
+}
+
+/* --- EDUCACIÓN: Paper clip sticker (top-left) --- */
+.section--accent::before{
+  content:'';position:absolute;z-index:3;pointer-events:none;
+  top:30px;left:50px;width:22px;height:55px;
+  border:3px solid rgba(31,45,69,.15);border-radius:11px;
+  transform:rotate(-8deg);
+}
+
+/* --- HABILIDADES: Paint splatter sticker (bottom-right) --- */
+.section--skills::before{
+  content:'';position:absolute;z-index:3;pointer-events:none;
+  bottom:30px;right:50px;width:80px;height:80px;
+  background:radial-gradient(ellipse at 30% 40%,rgba(212,50,0,.15) 0%,transparent 50%),
+    radial-gradient(ellipse at 70% 60%,rgba(5,186,221,.12) 0%,transparent 45%),
+    radial-gradient(ellipse at 50% 30%,rgba(255,180,4,.1) 0%,transparent 40%);
+  border-radius:40% 60% 50% 50%;transform:rotate(15deg);
+}
+
+/* --- CONTACTO: Envelope/seal sticker (top-left) --- */
+.section--editorial::before{
+  content:'';position:absolute;z-index:3;pointer-events:none;
+  top:50px;left:60px;width:50px;height:50px;
+  background:radial-gradient(circle at 50% 50%,rgba(255,128,7,.25) 0%,rgba(255,128,7,.08) 70%,transparent 100%);
+  border-radius:50%;
+  border:2px dashed rgba(255,128,7,.2);
+}
+
+/* --- STATS: Washi tape strips on cards --- */
+.stat-card{position:relative;transform:rotate(.5deg)}
+.stat-card:nth-child(2){transform:rotate(-.3deg)}
+.stat-card:nth-child(3){transform:rotate(.7deg)}
+.stat-card::before{
+  content:'';position:absolute;top:-6px;left:50%;width:50px;height:14px;z-index:3;
+  background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.4));
+  transform:translateX(-50%) rotate(-2deg);border-radius:1px;
+}
+
+/* ============================================================
+   ENHANCED TEXTURES — background patterns per section
+   ============================================================ */
+
+/* --- Hero: subtle diagonal lines --- */
+.hero{
+  background-image:
+    repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.03) 40px,rgba(255,255,255,.03) 42px);
+}
+
+/* --- Projects: kraft paper dots --- */
+.section--projects{
+  background-image:
+    radial-gradient(circle 1px at 20px 20px,rgba(31,45,69,.04) 100%,transparent 100%),
+    radial-gradient(circle 1px at 60px 60px,rgba(31,45,69,.04) 100%,transparent 100%);
+  background-size:80px 80px;
+}
+
+/* --- Experiencia: lined notebook paper --- */
+.section--sky{
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(31,45,69,.06) 31px,rgba(31,45,69,.06) 32px);
+  background-size:100% 32px;
+}
+
+/* --- Educación: grid/graph paper --- */
+.section--accent{
+  background-image:
+    linear-gradient(rgba(31,45,69,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(31,45,69,.04) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+
+/* --- Habilidades: cork board texture --- */
+.section--skills{
+  background-image:
+    radial-gradient(circle 2px at 15px 15px,rgba(139,90,43,.08) 100%,transparent 100%),
+    radial-gradient(circle 1px at 45px 45px,rgba(139,90,43,.06) 100%,transparent 100%),
+    radial-gradient(circle 2px at 75px 25px,rgba(139,90,43,.07) 100%,transparent 100%),
+    radial-gradient(circle 1px at 35px 70px,rgba(139,90,43,.05) 100%,transparent 100%);
+  background-size:90px 90px;
+}
+
+/* --- Contacto: fabric/linen texture --- */
+.section--editorial{
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.04) 2px,rgba(255,255,255,.04) 3px),
+    repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(255,255,255,.04) 2px,rgba(255,255,255,.04) 3px);
+}
+
+/* ============================================================
+   EXISTING SCRAPBOOK EFFECTS (kept from before)
+   ============================================================ */
+
 /* --- Washi tape on project cards --- */
 .project-card{position:relative}
 .project-card::before{
   content:'';position:absolute;top:-6px;left:30px;width:70px;height:20px;z-index:3;
   background:linear-gradient(135deg,rgba(255,214,0,.7),rgba(255,214,0,.4));
-  transform:rotate(-3deg);
-  border-radius:1px;
+  transform:rotate(-3deg);border-radius:1px;
 }
 .project-card:nth-child(2n)::before{background:linear-gradient(135deg,rgba(123,97,255,.6),rgba(123,97,255,.35));left:auto;right:30px;transform:rotate(2deg)}
 .project-card:nth-child(3n)::before{background:linear-gradient(135deg,rgba(255,77,106,.6),rgba(255,77,106,.35));left:50%;transform:rotate(-1deg)}
 
 /* --- Polaroid frame on project card images --- */
-.project-card-img{
-  border-bottom:none;
-  box-shadow:0 2px 8px rgba(0,0,0,.12);
-}
-.project-card-body{
-  background:#FEFEFE;
-  border-top:3px solid #F5F0E8;
-}
+.project-card-img{border-bottom:none;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.project-card-body{background:#FEFEFE;border-top:3px solid #F5F0E8}
 
 /* --- Sticker / tape on editorial card --- */
 .editorial-card{position:relative;transform:rotate(-.5deg)}
@@ -659,6 +807,7 @@ body::before{
 }
 
 /* --- Ribbon lace border on sobre-mí section --- */
+.section--violet{overflow:hidden}
 .section--violet::after{
   content:'';position:absolute;bottom:-4px;left:0;width:100%;height:20px;z-index:3;pointer-events:none;
   background:
@@ -681,21 +830,8 @@ body::before{
 }
 .section--sky .container{position:relative}
 
-/* --- Tape on stat cards --- */
-.stat-card{position:relative;transform:rotate(.5deg)}
-.stat-card:nth-child(2){transform:rotate(-.3deg)}
-.stat-card:nth-child(3){transform:rotate(.7deg)}
-.stat-card::before{
-  content:'';position:absolute;top:-6px;left:50%;width:50px;height:14px;z-index:3;
-  background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.4));
-  transform:translateX(-50%) rotate(-2deg);border-radius:1px;
-}
-
 /* --- Collage tilt on hero image --- */
-.hero-img-wrap{
-  transform:rotate(1.5deg);
-  transition:transform .3s ease;
-}
+.hero-img-wrap{transform:rotate(1.5deg);transition:transform .3s ease}
 .hero-img-wrap:hover{transform:rotate(0deg) scale(1.02)}
 
 /* --- Tape on hero image --- */
@@ -709,32 +845,20 @@ body::before{
 .about-img .blob-mask{
   border:6px solid #F5F0E8;
   box-shadow:4px 4px 0 rgba(0,0,0,.08), inset 0 0 20px rgba(0,0,0,.03);
-  transform:rotate(-1deg);
-  transition:transform .3s;
+  transform:rotate(-1deg);transition:transform .3s;
 }
 .about-img .blob-mask:hover{transform:rotate(0deg)}
 
 /* --- Education photos as instant photos --- */
-.edu-tl-photo img{
-  border:4px solid #FEFEFE;
-  box-shadow:3px 3px 0 rgba(0,0,0,.1);
-}
+.edu-tl-photo img{border:4px solid #FEFEFE;box-shadow:3px 3px 0 rgba(0,0,0,.1)}
 .edu-tl-entry{transition:transform .3s}
 .edu-tl-entry:hover{transform:scale(1.05) rotate(-1deg)}
-
-/* --- Scrapbook sticker decorations --- */
-.hero::after{
-  content:'';position:absolute;width:350px;height:350px;border-radius:50%;
-  background:rgba(5,186,221,.12);bottom:-80px;left:-60px;pointer-events:none;
-}
-.hero .squiggly{opacity:.6}
 
 /* --- Contact buttons like cut-out paper --- */
 .contact-btn{
   position:relative;border:2px solid rgba(31,45,69,.15)!important;
   background:rgba(255,255,255,.88)!important;
-  box-shadow:3px 3px 0 rgba(0,0,0,.06);
-  transition:transform .2s,box-shadow .2s;
+  box-shadow:3px 3px 0 rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;
 }
 .contact-btn:hover{
   box-shadow:5px 5px 0 rgba(0,0,0,.1);
@@ -757,35 +881,15 @@ body::before{
 }
 
 /* --- Buttons like cut paper --- */
-.btn-primary{
-  box-shadow:3px 3px 0 rgba(212,50,0,.25)!important;
-  transition:transform .15s,box-shadow .15s;
-}
-.btn-primary:hover{
-  box-shadow:5px 5px 0 rgba(212,50,0,.3)!important;
-  transform:translateY(-2px) rotate(-1deg)!important;
-}
-.btn-ghost{
-  border-style:dashed!important;
-}
+.btn-primary{box-shadow:3px 3px 0 rgba(212,50,0,.25)!important;transition:transform .15s,box-shadow .15s}
+.btn-primary:hover{box-shadow:5px 5px 0 rgba(212,50,0,.3)!important;transform:translateY(-2px) rotate(-1deg)!important}
+.btn-ghost{border-style:dashed!important}
 
 /* --- Nav like paper strip --- */
-.nav{
-  border-bottom:2px dashed rgba(31,45,69,.12)!important;
-  background:rgba(255,255,255,.92)!important;
-  box-shadow:0 2px 8px rgba(0,0,0,.04);
-}
-
-/* --- Skills section grid like pinned paper --- */
-.section--skills .skills-table{
-  position:relative;
-}
+.nav{border-bottom:2px dashed rgba(31,45,69,.12)!important;background:rgba(255,255,255,.92)!important;box-shadow:0 2px 8px rgba(0,0,0,.04)}
 
 /* --- Handwritten feel on labels --- */
-.section-label{
-  font-style:italic;
-  letter-spacing:.08em;
-}
+.section-label{font-style:italic;letter-spacing:.08em}
 
 /* --- Scrapbook collage: odd-even card tilt --- */
 .project-card:nth-child(odd){transform:rotate(-.3deg)}
