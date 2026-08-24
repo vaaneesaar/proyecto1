@@ -88,8 +88,8 @@ body{font-family:var(--typography-body-md-font);font-size:var(--typography-body-
 .page-nav-logo span{font-family:var(--typography-display-font);font-size:18px;font-weight:var(--typography-display-weight)}
 .page-nav-badge{font-family:var(--typography-caption-font);font-size:12px;background:var(--colors-background-alt);color:var(--colors-secondary);padding:2px 10px;border-radius:var(--rounded-full);font-weight:500}
 
-section{padding:var(--spacing-3xl) 0}
-.section-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md)}
+section{padding:var(--spacing-3xl) 0;position:relative}
+.section-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md);position:relative;z-index:1}
 .section-label{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);text-transform:uppercase;letter-spacing:.1em;color:var(--colors-interactive);margin-bottom:var(--spacing-xs)}
 .section-title{font-family:var(--typography-h1-font);font-size:clamp(28px,4vw,var(--typography-h1-size));font-weight:var(--typography-h1-weight);line-height:1.15;margin-bottom:var(--spacing-xs)}
 .section-desc{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);color:var(--colors-secondary);max-width:640px;margin-bottom:var(--spacing-xl)}
@@ -109,8 +109,8 @@ section{padding:var(--spacing-3xl) 0}
    COLOR SWATCH
    ============================================================ */
 .swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--spacing-sm)}
-.swatch{border-radius:var(--rounded-md);overflow:hidden;border:1px solid var(--colors-background-muted);transition:transform .2s,box-shadow .2s}
-.swatch:hover{transform:translateY(-2px);box-shadow:var(--shadow-medium)}
+.swatch{border-radius:var(--rounded-md);overflow:hidden;border:1px solid var(--colors-background-muted);transition:transform .3s,box-shadow .3s}
+.swatch:hover{transform:translateY(-4px) rotate(2deg);box-shadow:var(--shadow-high)}
 .swatch-color{height:100px;position:relative}
 .swatch-color .hex{position:absolute;bottom:8px;right:8px;font-family:'SF Mono',Consolas,monospace;font-size:12px;background:rgba(0,0,0,.45);color:#fff;padding:2px 8px;border-radius:4px}
 .swatch-body{padding:var(--spacing-xs) var(--spacing-sm);background:var(--colors-on-primary)}
@@ -154,8 +154,8 @@ section{padding:var(--spacing-3xl) 0}
    ============================================================ */
 .shadow-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--spacing-lg)}
 .shadow-box{display:flex;flex-direction:column;align-items:center;gap:var(--spacing-sm);text-align:center}
-.shadow-preview{width:100%;height:140px;background:var(--colors-on-primary);border-radius:var(--rounded-md);transition:transform .2s}
-.shadow-preview:hover{transform:translateY(-4px)}
+.shadow-preview{width:100%;height:140px;background:var(--colors-on-primary);border-radius:var(--rounded-md);transition:transform .3s}
+.shadow-preview:hover{transform:translateY(-6px) rotate(1deg)}
 .shadow-preview[data-level="none"]{box-shadow:none}
 .shadow-preview[data-level="hover"]{box-shadow:var(--shadow-hover)}
 .shadow-preview[data-level="medium"]{box-shadow:var(--shadow-medium)}
@@ -173,29 +173,29 @@ section{padding:var(--spacing-3xl) 0}
 .comp-label{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:var(--colors-support);margin-bottom:var(--spacing-2xs);text-transform:uppercase;letter-spacing:.05em}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-2xs);font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);padding:14px 24px;border-radius:var(--rounded-md);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s,transform .1s;text-decoration:none;white-space:nowrap}
-.btn:active{transform:scale(.97)}
-.btn-primary{background:var(--colors-primary);color:var(--colors-on-primary)}
-.btn-primary:hover{background:var(--colors-primary-hover);box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
-.btn-secondary{background:var(--colors-secondary);color:var(--colors-on-primary)}
-.btn-secondary:hover{opacity:.9;box-shadow:var(--shadow-hover);color:var(--colors-on-primary)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-2xs);font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);padding:14px 28px;border-radius:var(--rounded-full);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,box-shadow .3s,transform .15s;text-decoration:none;white-space:nowrap;letter-spacing:.02em}
+.btn:active{transform:scale(.95)}
+.btn-primary{background:var(--colors-primary);color:var(--colors-on-primary);box-shadow:0 4px 14px rgba(212,50,0,.25)}
+.btn-primary:hover{background:var(--colors-primary-hover);box-shadow:0 6px 20px rgba(212,50,0,.35);transform:translateY(-2px)}
+.btn-secondary{background:var(--colors-secondary);color:var(--colors-on-primary);box-shadow:0 4px 14px rgba(43,72,113,.25)}
+.btn-secondary:hover{opacity:.9;box-shadow:0 6px 20px rgba(43,72,113,.35);transform:translateY(-2px)}
 .btn-ghost{background:var(--colors-background);color:var(--colors-secondary);border-color:var(--colors-secondary)}
-.btn-ghost:hover{background:var(--colors-background-alt)}
+.btn-ghost:hover{background:var(--colors-background-alt);transform:translateY(-2px)}
 .btn-sm{padding:10px 18px;font-size:14px}
 
 /* Cards */
-.card{background:var(--colors-background);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-background-muted);transition:box-shadow .2s,transform .2s;max-width:360px}
-.card:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
-.card-featured{background:var(--colors-background-alt);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .2s,transform .2s;max-width:360px}
-.card-featured:hover{box-shadow:var(--shadow-medium);transform:translateY(-2px)}
-.card-muted{background:var(--colors-background-muted);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .2s,transform .2s;max-width:360px}
-.card-muted:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
-.warm-card{background:var(--colors-warm-support);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);transition:box-shadow .2s;max-width:360px}
-.warm-card:hover{box-shadow:var(--shadow-medium)}
-.editorial-card{background:var(--colors-editorial);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border-left:4px solid var(--colors-primary);transition:box-shadow .2s;max-width:360px}
-.editorial-card:hover{box-shadow:var(--shadow-medium)}
-.interactive-highlight{background:var(--colors-interactive);color:var(--colors-text);border-radius:var(--rounded-sm);font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);padding:var(--spacing-xs) var(--spacing-sm);transition:box-shadow .2s;max-width:360px}
-.interactive-highlight:hover{box-shadow:var(--shadow-hover)}
+.card{background:var(--colors-background);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-background-muted);transition:box-shadow .3s,transform .3s;max-width:360px}
+.card:hover{box-shadow:var(--shadow-high);transform:translateY(-4px) rotate(1deg)}
+.card-featured{background:var(--colors-background-alt);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .3s,transform .3s;max-width:360px}
+.card-featured:hover{box-shadow:var(--shadow-high);transform:translateY(-4px) rotate(-1deg)}
+.card-muted{background:var(--colors-background-muted);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .3s,transform .3s;max-width:360px}
+.card-muted:hover{box-shadow:var(--shadow-medium);transform:translateY(-3px) rotate(.5deg)}
+.warm-card{background:var(--colors-warm-support);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);transition:box-shadow .3s,transform .3s;max-width:360px}
+.warm-card:hover{box-shadow:var(--shadow-medium);transform:translateY(-3px) rotate(-1deg)}
+.editorial-card{background:var(--colors-editorial);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border-left:4px solid var(--colors-primary);transition:box-shadow .3s,transform .3s;max-width:360px}
+.editorial-card:hover{box-shadow:var(--shadow-medium);transform:translateY(-3px) rotate(.5deg)}
+.interactive-highlight{background:var(--colors-interactive);color:var(--colors-text);border-radius:var(--rounded-sm);font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);padding:var(--spacing-xs) var(--spacing-sm);transition:box-shadow .3s,transform .3s;max-width:360px}
+.interactive-highlight:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
 .card h3{font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h3-weight);line-height:var(--typography-h3-height);margin-bottom:var(--spacing-2xs)}
 .card p,.card-featured p,.card-muted p,.warm-card p,.editorial-card p,.interactive-highlight p{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height)}
 
@@ -236,6 +236,103 @@ section{padding:var(--spacing-3xl) 0}
 .do-col ul,.dont-col ul{list-style:none;padding:0}
 .do-col li::before{content:'✓';position:absolute;left:0;color:var(--colors-interactive);font-weight:700}
 .dont-col li::before{content:'✕';position:absolute;left:0;color:var(--colors-primary);font-weight:700}
+
+/* ============================================================
+   PLAYFUL MILU STYLE — Fondos de color, tarjetas inclinadas, cintas curvas
+   ============================================================ */
+
+/* --- Section backgrounds --- */
+#colors{background:linear-gradient(180deg,#FDE8E0 0%,#FFF5EE 100%)}
+#typography{background:linear-gradient(180deg,#E8F4FD 0%,#F0F8FF 100%)}
+#spacing{background:linear-gradient(180deg,#FFF8E1 0%,#FFFDF5 100%)}
+#shapes{background:linear-gradient(180deg,#F3E8FD 0%,#FAF5FF 100%)}
+#shadows{background:linear-gradient(180deg,#E0F7FA 0%,#F0FFFE 100%)}
+#components{background:linear-gradient(180deg,#FFF3E0 0%,#FFFBF5 100%)}
+#guidelines{background:linear-gradient(180deg,#FCE4EC 0%,#FFF0F3 100%)}
+
+/* --- Tilted numbered cards (MILU 01-04) --- */
+.tilted-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-md);margin:var(--spacing-xl) 0}
+@media(max-width:900px){.tilted-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.tilted-cards{grid-template-columns:1fr}}
+.tilted-card{border-radius:var(--rounded-md);padding:var(--spacing-md);min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.tilted-card:hover{box-shadow:var(--shadow-high)}
+.tilted-card:nth-child(1){background:var(--colors-primary);color:var(--colors-on-primary);transform:rotate(-3deg)}
+.tilted-card:nth-child(1):hover{transform:rotate(-1deg) translateY(-4px)}
+.tilted-card:nth-child(2){background:#E91E8C;color:var(--colors-on-primary);transform:rotate(2deg)}
+.tilted-card:nth-child(2):hover{transform:rotate(0deg) translateY(-4px)}
+.tilted-card:nth-child(3){background:var(--colors-emphasis);color:var(--colors-on-primary);transform:rotate(-1deg)}
+.tilted-card:nth-child(3):hover{transform:rotate(1deg) translateY(-4px)}
+.tilted-card:nth-child(4){background:var(--colors-accent);color:var(--colors-text);transform:rotate(3deg)}
+.tilted-card:nth-child(4):hover{transform:rotate(1deg) translateY(-4px)}
+.tilted-card-num{font-family:var(--typography-display-font);font-size:48px;font-weight:700;line-height:1;margin-bottom:var(--spacing-xs);opacity:.9}
+.tilted-card h3{font-family:var(--typography-h2-font);font-size:var(--typography-h3-size);font-weight:var(--typography-h2-weight);line-height:1.2;margin-bottom:var(--spacing-2xs)}
+.tilted-card p{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);opacity:.85}
+@media(max-width:900px){.tilted-card:nth-child(1),.tilted-card:nth-child(2),.tilted-card:nth-child(3),.tilted-card:nth-child(4){transform:rotate(0deg)}}
+
+/* --- Ribbon curved text --- */
+.ribbon{position:relative;overflow:hidden;padding:var(--spacing-lg) 0;margin:var(--spacing-md) 0}
+.ribbon svg{width:100%;height:auto;display:block}
+.ribbon svg text{font-family:var(--typography-display-font);font-size:18px;letter-spacing:.04em}
+.ribbon--yellow{background:var(--colors-accent)}
+.ribbon--yellow svg text{fill:var(--colors-text)}
+.ribbon--pink{background:#E91E8C}
+.ribbon--pink svg text{fill:var(--colors-on-primary)}
+.ribbon--blue{background:var(--colors-interactive)}
+.ribbon--blue svg text{fill:var(--colors-text)}
+.ribbon--red{background:var(--colors-primary)}
+.ribbon--red svg text{fill:var(--colors-on-primary)}
+.ribbon--editorial{background:var(--colors-editorial)}
+.ribbon--editorial svg text{fill:var(--colors-text)}
+
+/* --- Organic blob decorations --- */
+.blob-deco{position:absolute;pointer-events:none;z-index:0;border-radius:50%;filter:blur(0px)}
+.blob-deco--yellow{background:rgba(255,180,4,.12)}
+.blob-deco--cyan{background:rgba(5,186,221,.1)}
+.blob-deco--pink{background:rgba(233,30,140,.08)}
+.blob-deco--red{background:rgba(212,50,0,.06)}
+.blob-deco--violet{background:rgba(180,156,216,.1)}
+
+/* --- Scallop frame --- */
+.scallop-frame{position:relative;display:inline-block}
+.scallop-frame::before{content:'';position:absolute;inset:-12px;border-radius:50%;border:3px dashed var(--colors-accent);animation:scallop-spin 20s linear infinite}
+@keyframes scallop-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.scallop-frame::before{animation:none}}
+
+/* --- Sticker --- */
+.sticker{position:absolute;pointer-events:none;z-index:5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--typography-display-font);font-weight:700;color:var(--colors-on-primary);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.sticker--sm{width:56px;height:56px;font-size:11px}
+.sticker--md{width:72px;height:72px;font-size:13px}
+.sticker--lg{width:90px;height:90px;font-size:15px}
+.sticker--rotate{animation:sticker-wobble 4s ease-in-out infinite}
+@keyframes sticker-wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@media(prefers-reduced-motion:reduce){.sticker--rotate{animation:none!important}}
+
+/* --- Curved section header text --- */
+.curved-section{position:relative;overflow:visible;display:flex;justify-content:center;margin-bottom:var(--spacing-md)}
+.curved-section svg{width:100%;max-width:600px;height:auto;overflow:visible}
+.curved-section svg text{font-family:var(--typography-display-font);font-size:22px;fill:var(--colors-text);letter-spacing:.03em}
+
+/* --- Section label --- */
+.section-label{position:relative;display:inline-block}
+.section-label::after{content:'✦';margin-left:6px;font-size:10px;vertical-align:middle}
+
+/* --- Swatch tilt --- */
+.swatch:nth-child(odd):hover{transform:translateY(-4px) rotate(-2deg)}
+.swatch:nth-child(even):hover{transform:translateY(-4px) rotate(2deg)}
+
+/* --- Shape hover --- */
+.shape-preview{transition:transform .3s}
+.shape-preview:hover{transform:scale(1.08) rotate(5deg)}
+
+/* --- TOC --- */
+.toc a{transition:background .2s,color .2s,transform .15s}
+.toc a:hover{transform:translateY(-1px)}
+
+/* --- Footer --- */
+.page-footer{border-radius:var(--rounded-md) var(--rounded-md) 0 0;margin-top:var(--spacing-3xl)}
+
+/* --- Wavy divider between sections --- */
+.wave-divider{width:100%;height:40px;display:block;margin:0;padding:0}
 </style>
 </head>
 <body>
@@ -257,9 +354,16 @@ section{padding:var(--spacing-3xl) 0}
      HERO
      ============================================================ -->
 <header class="page-header" id="top" style="padding-top:calc(64px + var(--spacing-3xl))">
-  <div class="section-inner" style="text-align:center">
+  <div class="blob-deco blob-deco--yellow" style="width:300px;height:300px;top:-80px;right:-60px;opacity:.15" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--cyan" style="width:200px;height:200px;bottom:-60px;left:-40px;opacity:.1" aria-hidden="true"></div>
+  <div class="sticker sticker--md sticker--rotate" style="background:var(--colors-primary);top:80px;right:60px" aria-hidden="true">✦</div>
+  <div class="sticker sticker--sm sticker--rotate" style="background:var(--colors-accent);bottom:40px;left:50px" aria-hidden="true">★</div>
+  <div class="section-inner" style="text-align:center;position:relative;z-index:1">
     <h1>VLRC Design System</h1>
-    <p>Sistema de diseño de Vanette — estética moderna, colorida y contemporánea para creadores y creativos.</p>
+    <div class="curved-header" aria-hidden="true">
+      <svg viewBox="0 0 500 60"><path id="curve-ds" d="M20,50 Q250,0 480,50" fill="none"/><text><textPath href="#curve-ds" startOffset="50%" text-anchor="middle">Estética moderna ✦ Colorida ✦ Contemporánea ✦</textPath></text></svg>
+    </div>
+    <p>Sistema de diseño de Vanette — para creadores y creativos.</p>
   </div>
 </header>
 
@@ -282,7 +386,10 @@ section{padding:var(--spacing-3xl) 0}
      COLORS
      ============================================================ -->
 <section id="colors">
-  <div class="section-inner">
+  <div class="blob-deco blob-deco--yellow" style="width:400px;height:400px;top:-100px;right:-150px" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--cyan" style="width:250px;height:250px;bottom:-80px;left:-100px" aria-hidden="true"></div>
+  <div class="section-inner" style="position:relative">
+    <div class="sticker sticker--sm sticker--rotate" style="background:var(--colors-interactive);top:-10px;right:20px" aria-hidden="true">◎</div>
     <p class="section-label">01 — Colors</p>
     <h2 class="section-title">Paleta de colores</h2>
     <p class="section-desc">La paleta se construye sobre colores complementarios — azul y naranja como ejes principales, con tonos de rojo que refuerzan la energía y amarillo que aporta calidez decorativa.</p>
@@ -357,13 +464,48 @@ section{padding:var(--spacing-3xl) 0}
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- TILTED CARDS 01-04 -->
+<div class="section-inner" style="position:relative;z-index:2">
+  <div class="tilted-cards">
+    <div class="tilted-card">
+      <div class="tilted-card-num">01</div>
+      <h3>Colores vibrantes</h3>
+      <p>Paleta complementaria con energía y calidez.</p>
+    </div>
+    <div class="tilted-card">
+      <div class="tilted-card-num">02</div>
+      <h3>Tipografía con carácter</h3>
+      <p>Tres familias que cuentan historias diferentes.</p>
+    </div>
+    <div class="tilted-card">
+      <div class="tilted-card-num">03</div>
+      <h3>Espaciado consistente</h3>
+      <p>Unidades de 8px que crean armonía visual.</p>
+    </div>
+    <div class="tilted-card">
+      <div class="tilted-card-num">04</div>
+      <h3>Componentes modulares</h3>
+      <p>Piezas que se combinan infinitamente.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RIBBON CURVED TEXT -->
+<div class="ribbon ribbon--yellow" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path id="r1" d="M0,60 C200,10 400,70 600,30 C800,-10 1000,50 1200,20" fill="none"/>
+    <text><textPath href="#r1" startOffset="0%">✦ Diseño moderno ✦ Colorido ✦ Contemporáneo ✦ Creativo ✦ Dinámico ✦ Moderno ✦ Colorido ✦ Contemporáneo ✦ Creativo ✦ Dinámico ✦</textPath></text>
+  </svg>
+</div>
 
 <!-- ============================================================
      TYPOGRAPHY
      ============================================================ -->
 <section id="typography">
-  <div class="section-inner">
+  <div class="blob-deco blob-deco--pink" style="width:300px;height:300px;top:-80px;left:-120px" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--yellow" style="width:200px;height:200px;bottom:-60px;right:-80px" aria-hidden="true"></div>
+  <div class="section-inner" style="position:relative">
+    <div class="sticker sticker--sm sticker--rotate" style="background:var(--colors-warm-support);top:-10px;right:20px" aria-hidden="true">Aa</div>
     <p class="section-label">02 — Typography</p>
     <h2 class="section-title">Escala tipográfica</h2>
     <p class="section-desc">Tres familias con funciones específicas: Hypop-Heavy para impacto, NewYork para énfasis, Avenir para legibilidad continua.</p>
@@ -427,12 +569,20 @@ section{padding:var(--spacing-3xl) 0}
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- RIBBON -->
+<div class="ribbon ribbon--pink" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path id="r2" d="M0,20 C300,70 600,10 900,50 C1050,65 1150,30 1200,40" fill="none"/>
+    <text><textPath href="#r2" startOffset="0%">★ Hypop-Heavy para impacto ★ NewYork para énfasis ★ Avenir para legibilidad ★ Hypop-Heavy para impacto ★ NewYork para énfasis ★ Avenir para legibilidad ★</textPath></text>
+  </svg>
+</div>
 
 <!-- ============================================================
      SPACING
      ============================================================ -->
 <section id="spacing">
+  <div class="blob-deco blob-deco--cyan" style="width:280px;height:280px;top:-60px;right:-100px" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--violet" style="width:220px;height:220px;bottom:-70px;left:-90px" aria-hidden="true"></div>
   <div class="section-inner">
     <p class="section-label">03 — Spacing</p>
     <h2 class="section-title">Escala de espaciado</h2>
@@ -453,13 +603,21 @@ section{padding:var(--spacing-3xl) 0}
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- RIBBON -->
+<div class="ribbon ribbon--blue" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path id="r3" d="M0,40 C150,10 350,65 550,25 C750,-10 950,55 1200,30" fill="none"/>
+    <text><textPath href="#r3" startOffset="0%">◆ Unidad base: 8px ◆ Progresión consistente ◆ Orden visual en cada componente ◆ Unidad base: 8px ◆ Progresión consistente ◆ Orden visual ◆</textPath></text>
+  </svg>
+</div>
 
 <!-- ============================================================
      SHAPES
      ============================================================ -->
 <section id="shapes">
+  <div class="blob-deco blob-deco--red" style="width:250px;height:250px;top:-70px;left:-80px" aria-hidden="true"></div>
   <div class="section-inner">
+    <div class="sticker sticker--sm sticker--rotate" style="background:var(--colors-accent);top:-10px;right:20px" aria-hidden="true">◆</div>
     <p class="section-label">04 — Shapes</p>
     <h2 class="section-title">Formas y radios</h2>
     <p class="section-desc">Tres niveles de redondez que combinan estructura y dinamismo para reflejar el carácter creativo de la marca.</p>
@@ -484,12 +642,20 @@ section{padding:var(--spacing-3xl) 0}
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- RIBBON -->
+<div class="ribbon ribbon--editorial" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path id="r4" d="M0,30 C200,65 400,15 600,45 C800,75 1000,20 1200,40" fill="none"/>
+    <text><textPath href="#r4" startOffset="0%">✦ Redondez SM: 8px ✦ Redondez MD: 16px ✦ Redondez Full: 9999px ✦ Estructura y dinamismo ✦</textPath></text>
+  </svg>
+</div>
 
 <!-- ============================================================
      SHADOWS
      ============================================================ -->
 <section id="shadows">
+  <div class="blob-deco blob-deco--yellow" style="width:300px;height:300px;top:-90px;right:-120px" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--pink" style="width:200px;height:200px;bottom:-60px;left:-70px" aria-hidden="true"></div>
   <div class="section-inner">
     <p class="section-label">05 — Elevation</p>
     <h2 class="section-title">Sombras y elevación</h2>
@@ -520,13 +686,22 @@ section{padding:var(--spacing-3xl) 0}
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- RIBBON -->
+<div class="ribbon ribbon--yellow" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path id="r5" d="M0,50 C300,10 600,60 900,25 C1050,10 1150,45 1200,35" fill="none"/>
+    <text><textPath href="#r5" startOffset="0%">● Sutil y controlado ● Refuerza interacción ● Indica elevación ● Diferencia capas ● Sutil y controlado ●</textPath></text>
+  </svg>
+</div>
 
 <!-- ============================================================
      COMPONENTS
      ============================================================ -->
 <section id="components">
-  <div class="section-inner">
+  <div class="blob-deco blob-deco--violet" style="width:350px;height:350px;top:-100px;left:-130px" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--cyan" style="width:220px;height:220px;bottom:-80px;right:-90px" aria-hidden="true"></div>
+  <div class="section-inner" style="position:relative">
+    <div class="sticker sticker--md sticker--rotate" style="background:var(--colors-editorial);top:-10px;right:30px" aria-hidden="true">⌘</div>
     <p class="section-label">06 — Components</p>
     <h2 class="section-title">Componentes</h2>
     <p class="section-desc">Todos los componentes del sistema aplicando fielmente los tokens del DESIGN.md.</p>
@@ -620,13 +795,22 @@ section{padding:var(--spacing-3xl) 0}
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- RIBBON -->
+<div class="ribbon ribbon--red" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path id="r6" d="M0,35 C200,60 500,15 700,45 C900,75 1100,25 1200,30" fill="none"/>
+    <text><textPath href="#r6" startOffset="0%">★ Botones ★ Tarjetas ★ Formularios ★ Navegación ★ Badges ★ Tags ★ Botones ★ Tarjetas ★ Formularios ★ Navegación ★</textPath></text>
+  </svg>
+</div>
 
 <!-- ============================================================
      DO'S & DON'TS
      ============================================================ -->
 <section id="guidelines">
-  <div class="section-inner">
+  <div class="blob-deco blob-deco--red" style="width:280px;height:280px;top:-80px;right:-100px" aria-hidden="true"></div>
+  <div class="blob-deco blob-deco--yellow" style="width:200px;height:200px;bottom:-50px;left:-60px" aria-hidden="true"></div>
+  <div class="section-inner" style="position:relative">
+    <div class="sticker sticker--sm sticker--rotate" style="background:var(--colors-emphasis);top:-10px;right:20px" aria-hidden="true">✓</div>
     <p class="section-label">07 — Guidelines</p>
     <h2 class="section-title">Do's & Don'ts</h2>
     <p class="section-desc">La identidad debe sentirse creativa, vibrante, cercana y dinámica, pero siempre organizada.</p>
@@ -715,7 +899,7 @@ section{padding:var(--spacing-3xl) 0}
         if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';observer.unobserve(e.target)}
       });
     },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.swatch,.shape-box,.shadow-box,.comp-group,.dos-donts').forEach(function(el){
+    document.querySelectorAll('.swatch,.shape-box,.shadow-box,.comp-group,.dos-donts,.tilted-card,.ribbon').forEach(function(el){
       el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity .5s ease,transform .5s ease';
       observer.observe(el);
     });
