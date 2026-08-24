@@ -457,6 +457,28 @@ a:hover{color:var(--colors-interactive-hover)}
 @keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.marquee-inner{animation:none}}
 
+/* --- Scallop inter-section dividers --- */
+.marquee::before{
+  content:'';position:absolute;top:-12px;left:0;width:100%;height:13px;z-index:3;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,13 A10,10 0 0,1 20,13 A10,10 0 0,1 40,13' fill='%232B4871'/%3E%3C/svg%3E") repeat-x;
+  background-size:40px 13px;
+}
+.marquee::after{
+  content:'';position:absolute;bottom:-12px;left:0;width:100%;height:13px;z-index:3;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,0 A10,10 0 0,0 20,0 A10,10 0 0,0 40,0' fill='%232B4871'/%3E%3C/svg%3E") repeat-x;
+  background-size:40px 13px;
+}
+.marquee[style*="primary"]::before,.marquee[style*="primary"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,13 A10,10 0 0,1 20,13 A10,10 0 0,1 40,13' fill='%23D43200'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="primary"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,0 A10,10 0 0,0 20,0 A10,10 0 0,0 40,0' fill='%23D43200'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="editorial"]::before,.marquee[style*="editorial"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,13 A10,10 0 0,1 20,13 A10,10 0 0,1 40,13' fill='%23B49CD8'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="editorial"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,0 A10,10 0 0,0 20,0 A10,10 0 0,0 40,0' fill='%23B49CD8'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="emphasis"]::before,.marquee[style*="emphasis"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,13 A10,10 0 0,1 20,13 A10,10 0 0,1 40,13' fill='%23FF8007'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="emphasis"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,0 A10,10 0 0,0 20,0 A10,10 0 0,0 40,0' fill='%23FF8007'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="warm-support"]::before,.marquee[style*="warm-support"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,13 A10,10 0 0,1 20,13 A10,10 0 0,1 40,13' fill='%23FF6B4A'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="warm-support"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,0 A10,10 0 0,0 20,0 A10,10 0 0,0 40,0' fill='%23FF6B4A'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="text"]::before,.marquee[style*="text"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,13 A10,10 0 0,1 20,13 A10,10 0 0,1 40,13' fill='%231F2D45'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+.marquee[style*="text"]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 13'%3E%3Cpath d='M0,0 A10,10 0 0,0 20,0 A10,10 0 0,0 40,0' fill='%231F2D45'/%3E%3C/svg%3E") repeat-x;background-size:40px 13px}
+
 /* ============================================================
    WAVE-LINE DECOR — Ornamentos de líneas onduladas
    ============================================================ */
