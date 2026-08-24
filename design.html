@@ -354,8 +354,10 @@ section{padding:var(--spacing-3xl) 0;position:relative}
   .toc.open{display:flex}
   .toc-inner{flex-direction:column;align-items:center;gap:var(--spacing-md)}
   .toc a{font-size:18px;padding:var(--spacing-sm) var(--spacing-lg)}
-  .tilted-cards{grid-template-columns:1fr !important}
-  .tilted-card{transform:rotate(0deg) !important}
+  .tilted-cards{grid-template-columns:1fr 1fr !important;gap:var(--spacing-sm) !important}
+  .tilted-card{transform:rotate(0deg) !important;min-height:200px}
+  .tilted-card:nth-child(odd){transform:rotate(-2deg) !important}
+  .tilted-card:nth-child(even){transform:rotate(2deg) !important}
   .swatch-grid{grid-template-columns:1fr 1fr}
   .shapes-grid{grid-template-columns:1fr 1fr}
   .shadow-grid{grid-template-columns:1fr}
