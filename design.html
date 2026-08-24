@@ -338,6 +338,38 @@ section{padding:var(--spacing-3xl) 0;position:relative}
 
 /* --- Wavy divider between sections --- */
 .wave-divider{width:100%;height:40px;display:block;margin:0;padding:0}
+
+/* ============================================================
+   MOBILE — Hamburger menu + single column
+   ============================================================ */
+.toc-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:60}
+.toc-toggle span{display:block;width:22px;height:2px;background:var(--colors-text);margin:5px 0;border-radius:2px;transition:transform .3s,opacity .3s}
+.toc-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.toc-toggle.open span:nth-child(2){opacity:0}
+.toc-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+@media(max-width:767px){
+  .toc-toggle{display:block}
+  .toc{position:fixed;top:64px;left:0;right:0;bottom:0;background:#FFFFFF;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-md);display:none;z-index:55;padding:var(--spacing-xl);overflow-y:auto}
+  .toc.open{display:flex}
+  .toc-inner{flex-direction:column;align-items:center;gap:var(--spacing-md)}
+  .toc a{font-size:18px;padding:var(--spacing-sm) var(--spacing-lg)}
+  .tilted-cards{grid-template-columns:1fr !important}
+  .tilted-card{transform:rotate(0deg) !important}
+  .swatch-grid{grid-template-columns:1fr}
+  .shapes-grid{grid-template-columns:1fr 1fr}
+  .shadow-grid{grid-template-columns:1fr}
+  .comp-row{flex-direction:column}
+  .dos-donts{grid-template-columns:1fr}
+  .type-row{grid-template-columns:1fr;gap:var(--spacing-xs)}
+  .spacing-row{grid-template-columns:60px 50px 1fr;gap:var(--spacing-xs)}
+  .input-group{max-width:100%}
+  .card,.card-featured,.card-muted,.warm-card,.editorial-card,.interactive-highlight{max-width:100%}
+  .page-header h1{font-size:clamp(28px,8vw,48px)}
+  .curved-header svg{max-width:300px}
+  .blob-deco{display:none}
+  .ribbon svg text{font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -351,6 +383,9 @@ section{padding:var(--spacing-3xl) 0;position:relative}
       <img src="assets/logo/logo.jpg" alt="Logo" width="32" height="32">
       <span>VLRC Design System</span>
     </a>
+    <button class="toc-toggle" id="tocToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <span class="page-nav-badge">alpha</span>
   </div>
 </nav>
@@ -917,6 +952,24 @@ section{padding:var(--spacing-3xl) 0;position:relative}
   }
   window.addEventListener('scroll',updateActive,{passive:true});
   updateActive();
+
+  var tocToggle=document.getElementById('tocToggle');
+  var toc=document.querySelector('.toc');
+  if(tocToggle&&toc){
+    tocToggle.addEventListener('click',function(){
+      toc.classList.toggle('open');
+      tocToggle.classList.toggle('open');
+      var expanded=tocToggle.getAttribute('aria-expanded')==='true';
+      tocToggle.setAttribute('aria-expanded',!expanded);
+    });
+    toc.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click',function(){
+        toc.classList.remove('open');
+        tocToggle.classList.remove('open');
+        tocToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
 
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     var observer=new IntersectionObserver(function(entries){
