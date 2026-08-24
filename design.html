@@ -26,9 +26,9 @@
   --colors-accent:#FFB404;
   --colors-warm-support:#FF6B4A;
   --colors-editorial:#B49CD8;
-  --colors-background:#FAFAF8;
-  --colors-background-alt:#C7D5EB;
-  --colors-background-muted:#D9E3F2;
+  --colors-background:#FFE8DD;
+  --colors-background-alt:#FFD6C0;
+  --colors-background-muted:#FFF176;
   --colors-text:#1F2D45;
   --colors-on-primary:#FFFFFF;
 
@@ -65,7 +65,7 @@
 }
 
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);color:var(--colors-text);background:var(--colors-background);-webkit-font-smoothing:antialiased}
+body{font-family:var(--typography-body-md-font);font-size:var(--typography-body-md-size);line-height:var(--typography-body-md-height);color:var(--colors-text);background:#FFF9C4;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--colors-background-alt);color:var(--colors-text)}
 :focus-visible{outline:2px solid var(--colors-interactive);outline-offset:3px;border-radius:2px}
 
@@ -76,12 +76,12 @@ body{font-family:var(--typography-body-md-font);font-size:var(--typography-body-
 .page-header h1{font-family:var(--typography-display-font);font-size:clamp(36px,6vw,var(--typography-display-size));font-weight:var(--typography-display-weight);line-height:1.1;margin-bottom:var(--spacing-xs)}
 .page-header p{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);line-height:var(--typography-body-lg-height);color:var(--colors-background-alt);max-width:640px;margin:0 auto}
 
-.toc{position:sticky;top:64px;z-index:50;background:var(--colors-background);border-bottom:1px solid var(--colors-background-muted);padding:var(--spacing-xs) 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.toc{position:sticky;top:64px;z-index:50;background:#FFF9C4;border-bottom:1px solid var(--colors-background-muted);padding:var(--spacing-xs) 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .toc-inner{display:flex;gap:var(--spacing-sm);max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md);white-space:nowrap}
 .toc a{font-family:var(--typography-label-md-font);font-size:var(--typography-caption-size);font-weight:var(--typography-label-md-weight);color:var(--colors-secondary);text-decoration:none;padding:var(--spacing-2xs) var(--spacing-xs);border-radius:var(--rounded-full);transition:background .2s,color .2s}
 .toc a:hover,.toc a.active{background:var(--colors-background-alt);color:var(--colors-primary)}
 
-.page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--colors-background-muted);height:64px;display:flex;align-items:center}
+.page-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,249,196,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--colors-background-muted);height:64px;display:flex;align-items:center}
 .page-nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--spacing-md)}
 .page-nav-logo{display:flex;align-items:center;gap:var(--spacing-xs);text-decoration:none;color:var(--colors-text)}
 .page-nav-logo img{width:32px;height:32px;border-radius:var(--rounded-full);object-fit:cover}
@@ -113,7 +113,7 @@ section{padding:var(--spacing-3xl) 0;position:relative}
 .swatch:hover{transform:translateY(-4px) rotate(2deg);box-shadow:var(--shadow-high)}
 .swatch-color{height:100px;position:relative}
 .swatch-color .hex{position:absolute;bottom:8px;right:8px;font-family:'SF Mono',Consolas,monospace;font-size:12px;background:rgba(0,0,0,.45);color:#fff;padding:2px 8px;border-radius:4px}
-.swatch-body{padding:var(--spacing-xs) var(--spacing-sm);background:var(--colors-on-primary)}
+.swatch-body{padding:var(--spacing-xs) var(--spacing-sm);background:#FFFFFF}
 .swatch-name{font-family:var(--typography-label-md-font);font-size:var(--typography-body-md-size);font-weight:500;margin-bottom:2px}
 .swatch-token{font-family:'SF Mono',Consolas,monospace;font-size:12px;color:var(--colors-support);margin-bottom:4px}
 .swatch-role{font-family:var(--typography-caption-font);font-size:var(--typography-caption-size);color:var(--colors-secondary);line-height:1.4}
@@ -154,7 +154,7 @@ section{padding:var(--spacing-3xl) 0;position:relative}
    ============================================================ */
 .shadow-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--spacing-lg)}
 .shadow-box{display:flex;flex-direction:column;align-items:center;gap:var(--spacing-sm);text-align:center}
-.shadow-preview{width:100%;height:140px;background:var(--colors-on-primary);border-radius:var(--rounded-md);transition:transform .3s}
+.shadow-preview{width:100%;height:140px;background:#FFFFFF;border-radius:var(--rounded-md);transition:transform .3s}
 .shadow-preview:hover{transform:translateY(-6px) rotate(1deg)}
 .shadow-preview[data-level="none"]{box-shadow:none}
 .shadow-preview[data-level="hover"]{box-shadow:var(--shadow-hover)}
@@ -179,12 +179,12 @@ section{padding:var(--spacing-3xl) 0;position:relative}
 .btn-primary:hover{background:var(--colors-primary-hover);box-shadow:0 6px 20px rgba(212,50,0,.35);transform:translateY(-2px)}
 .btn-secondary{background:var(--colors-secondary);color:var(--colors-on-primary);box-shadow:0 4px 14px rgba(43,72,113,.25)}
 .btn-secondary:hover{opacity:.9;box-shadow:0 6px 20px rgba(43,72,113,.35);transform:translateY(-2px)}
-.btn-ghost{background:var(--colors-background);color:var(--colors-secondary);border-color:var(--colors-secondary)}
+.btn-ghost{background:#FFFFFF;color:var(--colors-secondary);border-color:var(--colors-secondary)}
 .btn-ghost:hover{background:var(--colors-background-alt);transform:translateY(-2px)}
 .btn-sm{padding:10px 18px;font-size:14px}
 
 /* Cards */
-.card{background:var(--colors-background);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-background-muted);transition:box-shadow .3s,transform .3s;max-width:360px}
+.card{background:#FFFFFF;color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:1px solid var(--colors-background-muted);transition:box-shadow .3s,transform .3s;max-width:360px}
 .card:hover{box-shadow:var(--shadow-high);transform:translateY(-4px) rotate(1deg)}
 .card-featured{background:var(--colors-background-alt);color:var(--colors-text);border-radius:var(--rounded-md);padding:var(--spacing-sm) var(--spacing-md);border:none;transition:box-shadow .3s,transform .3s;max-width:360px}
 .card-featured:hover{box-shadow:var(--shadow-high);transform:translateY(-4px) rotate(-1deg)}
@@ -202,7 +202,7 @@ section{padding:var(--spacing-3xl) 0;position:relative}
 /* Input */
 .input-group{display:flex;flex-direction:column;gap:var(--spacing-3xs);max-width:360px}
 .input-label{font-family:var(--typography-label-md-font);font-size:var(--typography-label-md-size);font-weight:var(--typography-label-md-weight);line-height:var(--typography-label-md-height);color:var(--colors-text)}
-.input-field{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);padding:12px var(--spacing-sm);border:2px solid var(--colors-background-alt);border-radius:var(--rounded-sm);background:var(--colors-on-primary);color:var(--colors-text);outline:none;transition:border-color .2s,box-shadow .2s;height:48px}
+.input-field{font-family:var(--typography-body-lg-font);font-size:var(--typography-body-lg-size);font-weight:var(--typography-body-lg-weight);line-height:var(--typography-body-lg-height);padding:12px var(--spacing-sm);border:2px solid var(--colors-background-alt);border-radius:var(--rounded-sm);background:#FFFFFF;color:var(--colors-text);outline:none;transition:border-color .2s,box-shadow .2s;height:48px}
 .input-field::placeholder{color:var(--colors-support)}
 .input-field:focus{border-color:var(--colors-interactive);box-shadow:var(--shadow-hover)}
 
@@ -438,27 +438,47 @@ section{padding:var(--spacing-3xl) 0;position:relative}
       </div>
     </div>
 
-    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-sm)">Superficies y fondos</h3>
+    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-sm)">Fondos de sección</h3>
+    <div class="swatch-grid" style="margin-bottom:var(--spacing-xl)">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFD6C0"><span class="hex">#FFD6C0</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Colores</div><div class="swatch-token">Sección 01</div><div class="swatch-role">Gradiente peach para la sección de Paleta de colores.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#05BADD"><span class="hex">#05BADD</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Tipografía</div><div class="swatch-token">Sección 02</div><div class="swatch-role">Azul brillante para la sección de Escala tipográfica.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFF176"><span class="hex">#FFF176</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Espaciado</div><div class="swatch-token">Sección 03</div><div class="swatch-role">Amarillo vibrante para la sección de Espaciado.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#CE93D8"><span class="hex">#CE93D8</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Formas</div><div class="swatch-token">Sección 04</div><div class="swatch-role">Morado para la sección de Formas y radios.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#80DEEA"><span class="hex">#80DEEA</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Elevación</div><div class="swatch-token">Sección 05</div><div class="swatch-role">Turquesa para la sección de Sombras y elevación.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFCC80"><span class="hex">#FFCC80</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Componentes</div><div class="swatch-token">Sección 06</div><div class="swatch-role">Naranja para la sección de Componentes.</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F48FB1"><span class="hex">#F48FB1</span></div>
+        <div class="swatch-body"><div class="swatch-name">Fondo Guías</div><div class="swatch-token">Sección 07</div><div class="swatch-role">Rosa para la sección de Do's & Don'ts.</div></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--typography-h3-font);font-size:var(--typography-h3-size);margin-bottom:var(--spacing-sm)">Uso general</h3>
     <div class="swatch-grid">
       <div class="swatch">
-        <div class="swatch-color" style="background:#FAFAF8;border-bottom:1px solid #eee"><span class="hex">#FAFAF8</span></div>
-        <div class="swatch-body"><div class="swatch-name">Background</div><div class="swatch-token">{colors.background}</div><div class="swatch-role">Fondo principal. Base para maximizar legibilidad y contraste.</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#C7D5EB"><span class="hex">#C7D5EB</span></div>
-        <div class="swatch-body"><div class="swatch-name">Background Alt</div><div class="swatch-token">{colors.background-alt}</div><div class="swatch-role">Diferenciar secciones, tarjetas y áreas de contenido.</div></div>
-      </div>
-      <div class="swatch">
-        <div class="swatch-color" style="background:#D9E3F2"><span class="hex">#D9E3F2</span></div>
-        <div class="swatch-body"><div class="swatch-name">Background Muted</div><div class="swatch-token">{colors.background-muted}</div><div class="swatch-role">Contenedores, secciones diferenciadas y áreas de apoyo visual.</div></div>
-      </div>
-      <div class="swatch">
         <div class="swatch-color" style="background:#1F2D45"><span class="hex">#1F2D45</span></div>
-        <div class="swatch-body"><div class="swatch-name">Text</div><div class="swatch-token">{colors.text}</div><div class="swatch-role">Texto principal. Cuerpos de texto, encabezados y máxima legibilidad.</div></div>
+        <div class="swatch-body"><div class="swatch-name">Texto</div><div class="swatch-token">{colors.text}</div><div class="swatch-role">Texto principal. Cuerpos de texto, encabezados y máxima legibilidad.</div></div>
       </div>
       <div class="swatch">
         <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #eee"><span class="hex" style="background:rgba(0,0,0,.45)">#FFFFFF</span></div>
-        <div class="swatch-body"><div class="swatch-name">On Primary</div><div class="swatch-token">{colors.on-primary}</div><div class="swatch-role">Texto blanco sobre fondos de color intenso.</div></div>
+        <div class="swatch-body"><div class="swatch-name">Blanco</div><div class="swatch-token">{colors.on-primary}</div><div class="swatch-role">Texto blanco sobre fondos de color intenso.</div></div>
       </div>
     </div>
   </div>
